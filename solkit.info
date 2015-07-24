@@ -1,0 +1,79 @@
+name = SolKit
+distribution_name = "solkit"
+description = "solkit is a Solution Drop distribution based on the Panopoly distribution."
+version = "7.x-1.x"
+core = "7.x"
+exclusive = 1
+
+base[] = panopoly
+
+files[] = solkit.install
+files[] = solkit.profile
+
+; ------------
+; Dependencies
+; ------------
+
+;
+; Core
+;
+
+; Drupal Core
+dependencies[] = menu
+dependencies[] = image
+dependencies[] = list
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = update
+
+;
+; Contrib
+;
+
+dependencies[] = ckeditor
+dependencies[] = features_override
+
+; dependencies[] = solkit_wysiwyg
+
+
+
+;
+; Panopoly Modules
+;
+
+; Panopoly Foundation
+dependencies[] = panopoly_core
+dependencies[] = panopoly_images
+dependencies[] = panopoly_theme
+dependencies[] = panopoly_magic
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_admin
+dependencies[] = panopoly_users
+
+; Panopoly Toolset
+dependencies[] = panopoly_pages
+dependencies[] = panopoly_search
+dependencies[] = panopoly_wysiwyg
+
+; Panopoly Recommended - Admin & UI
+dependencies[] = backports
+dependencies[] = breakpoints
+dependencies[] = date_popup_authored
+dependencies[] = module_filter
+dependencies[] = navbar
+dependencies[] = save_draft
+dependencies[] = simplified_menu_admin
+dependencies[] = views_ui
+
+; Panopoly Recommended - Other
+dependencies[] = devel
+dependencies[] = distro_update
+dependencies[] = uuid
+dependencies[] = apps

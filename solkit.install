@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file solkit.install
+ * Install, update and uninstall functions.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function solkit_install() {
+  // Set the default theme.
+  _solkit_set_up_theme();
+}
+
+/**
+ * Set the default theme.
+ */
+function _solkit_set_up_theme() {
+  $theme = 'solwrap';
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+  theme_disable(array('responsive_bartik', 'bartik'));
+}
