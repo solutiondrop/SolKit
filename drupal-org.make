@@ -4,6 +4,7 @@ core = 7.x
 ; **********************************************
 ; ***************** CONTRIB ********************
 
+projects[solkit_wysiwyg][type] = module
 projects[solkit_wysiwyg][download][type] = "git"
 projects[solkit_wysiwyg][download][branch] = "master"
 projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
