@@ -3,12 +3,7 @@ core = 7.x
 
 ; **********************************************
 ; ***************** CONTRIB ********************
-
-projects[ckeditor][version] = 1.16
-projects[ckeditor][subdir] = contrib
-
-projects[bootstrap_library][version] = 1.4
-projects[bootstrap_library][subdir] = contrib
+; Add contrib modules here.
 
 ; **************** END CONTRIB *****************
 ; **********************************************

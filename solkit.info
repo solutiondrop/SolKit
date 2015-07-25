@@ -3,7 +3,7 @@ distribution_name = SolKit
 description = Solkit is the Solution Drop distribution based on the Panopoly distribution
 core = "7.x"
 exclusive = 1
-version = "7.x-1.0"
+version = "7.x-1.x"
 
 base[] = panopoly
 
@@ -61,11 +61,3 @@ dependencies[] = distro_update
 dependencies[] = uuid
 dependencies[] = apps
 
-
-; SolKit Theme required
-dependencies[] = radix_layouts
-dependencies[] = bootstrap_library
-
-; SolKit Required Contrib Modules
-dependencies[] = ckeditor
-dependencies[] = features_override

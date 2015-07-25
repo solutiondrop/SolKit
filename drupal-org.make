@@ -1,58 +1,27 @@
 api = 2
 core = 7.x
 
-; MAKE file for SolKit RELEASE version.  Used by Drupal.org packager
-; Drupal.org does not support recursive include[] files so everything is in this file
+; **********************************************
+; ***************** CONTRIB ********************
+; Add contrib modules here.
 
-; ******************** RELEASE *******************
+; **************** END CONTRIB *****************
+; **********************************************
 
-; projects[oa_core][subdir] = contrib
-; projects[oa_core][version] = 2.57
+; **********************************************
+; ***************** PANOPOLY *******************
 
-; ************************************************
-; ************* SolKit Builtin Apps *********
-
-projects[solkit_wysiwyg][type] = "module"
-projects[solkit_wysiwyg][subdir] = "solapps"
-projects[solkit_wysiwyg][download][url] = "git@github.com:solutiondrop/solkit-wysiwyg.git"
-projects[solkit_wysiwyg][download][type] = "git"
-projects[solkit_wysiwyg][download][branch] = "master"
-
-; ******** End SolKit Builtin Apps **********
-; ************************************************
-
-
-; ************************************************
-; ************* SolKit Core Addon Apps ******
-; (Local optional apps that included by default)
-
-; ***************** End Apps *********************
-; ************************************************
-
-
-; ************************************************
-; ************** SolKit Themes **************
-
-; Radix
-projects[radix_core][version] = 3.x-dev
-projects[radix_core][subdir] = contrib
-
-projects[solwrap][type] = theme
-projects[solwrap][download][url] = "git@github.com:solutiondrop/solwrap.git"
-projects[solwrap][download][type] = "git"
-projects[solwrap][download][branch] = "master"
-
-; *********** End SolKit Themes *************
-; ************************************************
-
-; ************************************************
-; ******************* PANOPOLY *******************
-
-; Note that makefiles are parsed bottom-up, and that in Drush 5 concurrency might
+; Note that makefiles are parsed bottom-up, and that in Drush concurrency might
 ; interfere with recursion.
 ; Therefore PANOPOLY needs to be listed AT THE BOTTOM of this makefile,
 ; so we can patch or update certain projects fetched by Panopoly's makefiles.
-; NOTE: If you are running Drush 6, this section should be placed at the TOP
+
+; Someday maybe we can turn this on to just inherit Panopoly
+;projects[panopoly][type] = profile
+;projects[panopoly][version] = 7.x-1.25
+; but, Drupal.org does not support recursive profiles and also does not support
+; include[] so we need to copy Panopoly's drupal-org.make file here.
+
 
 ; The Panopoly Foundation
 
@@ -93,19 +62,5 @@ projects[panopoly_search][subdir] = panopoly
 projects[panopoly_test][version] = 1.25
 projects[panopoly_test][subdir] = panopoly
 
-
-; ***************** End Panopoly *****************
-; ************************************************
-
-; ************************************************
-; ************** SolKit Contrib *************
-
-projects[ckeditor][version] = 1.16
-projects[ckeditor][subdir] = contrib
-
-projects[bootstrap_library][version] = 1.4
-projects[bootstrap_library][subdir] = contrib
-
-
-; *********** End SolKit Contrib ************
-; ************************************************
+; **************** END PANOPOLY ****************
+; **********************************************

@@ -1,11 +1,7 @@
 <?php
-
 /**
- * @file 
- * Install profile for SolKit
+ * @file solkit.profile
  */
-
-//** FROM OA **// include_once 'install_from_db/install_from_db.profile';
 
 /**
  * Implements hook_install_tasks().
@@ -14,11 +10,13 @@
  * password is set).
  */
 function solkit_install_tasks($install_state) {
+  // Attempt to increase memory limit to 196M.
+  if (ini_get('memory_limit') != '-1' && ini_get('memory_limit') <= '196M' && ini_get('memory_limit') >= '128M') {
+    ini_set('memory_limit', '196M');
+  }
+
   // Add custom tasks to the tasks array.
   $tasks = array();
-
-  // Add our custom CSS file for the installation process
-//****// drupal_add_css(drupal_get_path('profile', 'solkit') . '/solkit.css');
 
   // Add the Panopoly App Server to the Installation Process (OPTIONAL)
   //
@@ -26,17 +24,17 @@ function solkit_install_tasks($install_state) {
   // magic with Panopoly. In order to get this working in your install profile,
   // you need to include the following code to your profile's
   // hook_install_tasks().
-  $panopoly_server = array(
-    'machine name' => 'panopoly',
-    'default apps' => array('panopoly_demo'),
-    'default content callback' => 'panopoly_default_content',
-  );
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $tasks = $tasks + apps_profile_install_tasks($install_state, $panopoly_server);
+  //$panopoly_server = array(
+  //  'machine name' => 'panopoly',
+  //  'default apps' => array('panopoly_demo'),
+  //  'default content callback' => 'panopoly_default_content',
+  //);
+  //require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+  //$tasks = $tasks + apps_profile_install_tasks($install_state, $panopoly_server);
 
   // Add the Panopoly theme selection to the installation process
-  require_once(drupal_get_path('module', 'panopoly_theme') . '/panopoly_theme.profile.inc');
-  $tasks = $tasks + panopoly_theme_profile_theme_selection_install_task($install_state);
+  //require_once(drupal_get_path('module', 'panopoly_theme') . '/panopoly_theme.profile.inc');
+  //$tasks = $tasks + panopoly_theme_profile_theme_selection_install_task($install_state);
 
   // Insert additional tasks here.
 
@@ -76,7 +74,7 @@ function solkit_form_install_configure_form_alter(&$form, $form_state) {
   $form['site_information']['site_name']['#default_value'] = 'SolKit';
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
   $form['server_settings']['site_default_country']['#default_value'] = 'US';
-  $form['server_settings']['date_default_timezone']['#default_value'] = 'America/Chicago'; 
+  $form['server_settings']['date_default_timezone']['#default_value'] = 'America/Los_Angeles'; // West coast, best coast
 
   // Define a default email address if we can guess a valid one
   if (valid_email_address('admin@' . $_SERVER['HTTP_HOST'])) {
@@ -88,37 +86,24 @@ function solkit_form_install_configure_form_alter(&$form, $form_state) {
   // This module probably shouldn't be enabled on productions sites where
   // performance is critical.
   $form['update_notifications']['update_status_module']['#default_value'] = array(0, 0);
-
 }
 
-/**
- * Implements hook_form_FORM_ID_alter()
- */
-function solkit_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
-
-  // For some things there are no need
-  $form['apps_message']['#access'] = FALSE;
-  $form['apps_fieldset']['apps']['#title'] = NULL;
-
-  // Improve style of apps selection form
-  if (isset($form['apps_fieldset'])) {
-    $manifest = apps_manifest(apps_servers('panopoly'));
-    foreach ($manifest['apps'] as $name => $app) {
-      if ($name != '#theme') {
-        $form['apps_fieldset']['apps']['#options'][$name] = '<strong>' . $app['name'] . '</strong><p><div class="admin-options"><div class="form-item">' . theme('image', array('path' => $app['logo']['path'], 'height' => '32', 'width' => '32')) . '</div>' . $app['description'] . '</div></p>';
-      }
-    }
-  }
-}
-
-
-/**
- * Implements hook_form_FORM_ID_alter() for panopoly_theme_selection_form.
- */
-function solkit_form_panopoly_theme_selection_form_alter(&$form, &$form_state, $form_id) {
-  // Change the default theme in the selection form.
-  unset($form['theme_wrapper']['theme']['#options']['radix']);
-  unset($form['theme_wrapper']['theme']['#options']['radix_starter']);
-  $form['theme_wrapper']['theme']['#default_value'] = 'solwrap';
-}
-
+///**
+// * Implements hook_form_FORM_ID_alter()
+// */
+//function panopoly_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
+//
+//  // For some things there are no need
+//  $form['apps_message']['#access'] = FALSE;
+//  $form['apps_fieldset']['apps']['#title'] = NULL;
+//
+//  // Improve style of apps selection form
+//  if (isset($form['apps_fieldset'])) {
+//    $manifest = apps_manifest(apps_servers('panopoly'));
+//    foreach ($manifest['apps'] as $name => $app) {
+//      if ($name != '#theme') {
+//        $form['apps_fieldset']['apps']['#options'][$name] = '<strong>' . $app['name'] . '</strong><p><div class="admin-options"><div class="form-item">' . theme('image', array('path' => $app['logo']['path'], 'height' => '32', 'width' => '32')) . '</div>' . $app['description'] . '</div></p>';
+//      }
+//    }
+//  }
+//}
