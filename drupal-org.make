@@ -12,11 +12,6 @@ core = 7.x
 ; ************************************************
 ; ************* SolKit Builtin Apps *********
 
-; projects[solkit_wysiwyg][download][type] = "git"
-; projects[solkit_wysiwyg][download][url] = "https://"
-; projects[solkit_wysiwyg][version] = 1.0
-; projects[solkit_wysiwyg][subdir] = apps
-
 projects[solkit_wysiwyg][type] = "module"
 projects[solkit_wysiwyg][subdir] = "solapps"
 projects[solkit_wysiwyg][download][url] = "git@github.com:solutiondrop/solkit-wysiwyg.git"
@@ -114,6 +109,13 @@ projects[panopoly_search][patch][2469005] = https://www.drupal.org/files/issues/
 
 ; projects[bootstrap_tour][version] = 2.4
 ; projects[bootstrap_tour][subdir] = contrib
+
+projects[ckeditor][version] = 1.16
+projects[ckeditor][subdir] = contrib
+
+projects[bootstrap_library][version] = 1.4
+projects[bootstrap_library][subdir] = contrib
+
 
 ; *********** End SolKit Contrib ************
 ; ************************************************
