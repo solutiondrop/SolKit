@@ -15,7 +15,7 @@ core = 7.x
 projects[solkit_wysiwyg][download][type] = "git"
 projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
 projects[solkit_wysiwyg][subdir] = apps
-projects[oa_core][version] = 1.0
+projects[solkit_wysiwyg][version] = 1.0
 
 ; ******** End SolKit Builtin Apps **********
 ; ************************************************
