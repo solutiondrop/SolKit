@@ -14,4 +14,5 @@ includes[] = drupal-org-core.make
 ; Download the SolKit install profile and recursively build all its dependencies:
 projects[solkit][type] = profile
 projects[solkit][download][type] = git
+projects[restaurant][download][branch] = master
 projects[solkit][download][url] = https://github.com/solutiondrop/solkit.git

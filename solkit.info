@@ -2,15 +2,16 @@ name = SolKit
 distribution_name = SolKit
 description = Solkit is the Solution Drop distribution based on the Panopoly distribution
 core = "7.x"
-exclusive = TRUE
+exclusive = 1
 version = "7.x-1.0"
 
 base[] = panopoly
 
-; files[] = solkit.install
+files[] = solkit.install
 files[] = solkit.profile
 
 ; Drupal Core
+dependencies[] = block
 dependencies[] = menu
 dependencies[] = image
 dependencies[] = list
@@ -23,6 +24,7 @@ dependencies[] = shortcut
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
+dependencies[] = dblog
 dependencies[] = update
 
 ;
@@ -45,8 +47,8 @@ dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
-dependencies[] = backports
 dependencies[] = breakpoints
+dependencies[] = backports
 dependencies[] = simplified_menu_admin
 dependencies[] = save_draft
 dependencies[] = module_filter
@@ -58,6 +60,7 @@ dependencies[] = devel
 dependencies[] = distro_update
 dependencies[] = uuid
 dependencies[] = apps
+
 
 ; SolKit Theme required
 dependencies[] = radix_layouts

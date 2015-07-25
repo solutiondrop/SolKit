@@ -26,9 +26,6 @@ projects[solkit_wysiwyg][download][branch] = "master"
 ; ************* SolKit Core Addon Apps ******
 ; (Local optional apps that included by default)
 
-; projects[oa_admin][version] = 2.1
-; projects[oa_admin][subdir] = apps
-
 ; ***************** End Apps *********************
 ; ************************************************
 
@@ -106,9 +103,6 @@ projects[panopoly_search][patch][2469005] = https://www.drupal.org/files/issues/
 
 ; ************************************************
 ; ************** SolKit Contrib *************
-
-; projects[bootstrap_tour][version] = 2.4
-; projects[bootstrap_tour][subdir] = contrib
 
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
