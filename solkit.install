@@ -21,3 +21,4 @@ function _solkit_set_up_theme() {
   variable_set('theme_default', $theme);
   theme_disable(array('responsive_bartik', 'bartik'));
 }
+

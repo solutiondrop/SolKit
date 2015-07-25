@@ -1,22 +1,14 @@
 name = SolKit
-distribution_name = "solkit"
-description = "solkit is a Solution Drop distribution based on the Panopoly distribution."
-version = "7.x-1.x"
+distribution_name = SolKit
+description = Solkit is the Solution Drop distribution based on the Panopoly distribution
 core = "7.x"
-exclusive = 1
+exclusive = TRUE
+version = "7.x-1.0"
 
 base[] = panopoly
 
-files[] = solkit.install
+; files[] = solkit.install
 files[] = solkit.profile
-
-; ------------
-; Dependencies
-; ------------
-
-;
-; Core
-;
 
 ; Drupal Core
 dependencies[] = menu
@@ -32,17 +24,6 @@ dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = update
-
-;
-; Contrib
-;
-
-dependencies[] = ckeditor
-dependencies[] = features_override
-
-; dependencies[] = solkit_wysiwyg
-
-
 
 ;
 ; Panopoly Modules
@@ -63,13 +44,13 @@ dependencies[] = panopoly_search
 dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin & UI
+dependencies[] = navbar
 dependencies[] = backports
 dependencies[] = breakpoints
-dependencies[] = date_popup_authored
-dependencies[] = module_filter
-dependencies[] = navbar
-dependencies[] = save_draft
 dependencies[] = simplified_menu_admin
+dependencies[] = save_draft
+dependencies[] = module_filter
+dependencies[] = date_popup_authored
 dependencies[] = views_ui
 
 ; Panopoly Recommended - Other
@@ -77,3 +58,11 @@ dependencies[] = devel
 dependencies[] = distro_update
 dependencies[] = uuid
 dependencies[] = apps
+
+; SolKit Theme required
+dependencies[] = radix_layouts
+dependencies[] = bootstrap_library
+
+; SolKit Required Contrib Modules
+dependencies[] = ckeditor
+dependencies[] = features_override

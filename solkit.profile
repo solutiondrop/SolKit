@@ -1,7 +1,11 @@
 <?php
+
 /**
- * @file solkit.profile
+ * @file 
+ * Install profile for SolKit
  */
+
+// include_once 'install_from_db/install_from_db.profile';
 
 /**
  * Implements hook_install_tasks().
@@ -107,3 +111,14 @@ function solkit_form_install_configure_form_alter(&$form, $form_state) {
 //    }
 //  }
 //}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter() for panopoly_theme_selection_form.
+ */
+function solkit_form_panopoly_theme_selection_form_alter(&$form, &$form_state, $form_id) {
+  // Change the default theme in the selection form.
+  unset($form['theme_wrapper']['theme']['#options']['radix']);
+  unset($form['theme_wrapper']['theme']['#options']['radix_starter']);
+  $form['theme_wrapper']['theme']['#default_value'] = 'solwrap';
+}
