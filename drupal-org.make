@@ -12,10 +12,16 @@ core = 7.x
 ; ************************************************
 ; ************* SolKit Builtin Apps *********
 
+; projects[solkit_wysiwyg][download][type] = "git"
+; projects[solkit_wysiwyg][download][url] = "https://"
+; projects[solkit_wysiwyg][version] = 1.0
+; projects[solkit_wysiwyg][subdir] = apps
+
+projects[solkit_wysiwyg][type] = "module"
+projects[solkit_wysiwyg][subdir] = "solapps"
+projects[solkit_wysiwyg][download][url] = "git@github.com:solutiondrop/solkit-wysiwyg.git"
 projects[solkit_wysiwyg][download][type] = "git"
-projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/solkit-wysiwyg.git"
-projects[solkit_wysiwyg][version] = 1.0
-projects[solkit_wysiwyg][subdir] = apps
+projects[solkit_wysiwyg][download][branch] = "master"
 
 ; ******** End SolKit Builtin Apps **********
 ; ************************************************
