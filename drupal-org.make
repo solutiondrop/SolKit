@@ -3,10 +3,35 @@ core = 7.x
 
 ; **********************************************
 ; ***************** CONTRIB ********************
-; Add contrib modules here.
+
+projects[solkit_wysiwyg][download][type] = git
+projects[solkit_wysiwyg][download][branch] = master
+projects[solkit_wysiwyg][download][url] = https://github.com/solutiondrop/SolKit-WYSIWYG.git
+projects[solkit_wysiwyg][subdir] = apps
 
 ; **************** END CONTRIB *****************
 ; **********************************************
+
+; ************************************************
+; ************** SolKit Themes **************
+
+; Radix
+; projects[radix_core][version] = 3.x-dev
+; projects[radix_core][subdir] = contrib
+
+; Radix Theme
+projects[radix][type] = theme
+projects[radix][download][type] = git
+projects[radix][download][revision] = c854057
+projects[radix][download][branch] = 7.x-3.x
+
+projects[solwrap][type] = theme
+projects[solwrap][download][type] = git
+projects[solwrap][download][branch] = master
+projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
+
+; *********** End SolKit Themes *************
+; ************************************************
 
 ; **********************************************
 ; ***************** PANOPOLY *******************
