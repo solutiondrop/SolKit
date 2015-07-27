@@ -95,6 +95,16 @@ projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 ; **********************************************
 ; ***************** CONTRIB ********************
 
+; Features Override
+projects[features_override][type] = module
+projects[features_override][download][type] = git
+projects[features_override][download][branch] = 7.x-2.x
+projects[features_override][subdir] = contrib
+
+; CKeditor
+projects[ckeditor][version] = 1.16
+projects[ckeditor][subdir] = contrib
+
 projects[solkit_wysiwyg][type] = module
 projects[solkit_wysiwyg][download][type] = "git"
 projects[solkit_wysiwyg][download][branch] = "master"
