@@ -105,11 +105,14 @@ projects[features_override][subdir] = contrib
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
-projects[solkit_wysiwyg][type] = module
-projects[solkit_wysiwyg][download][type] = "git"
-projects[solkit_wysiwyg][download][branch] = "master"
-projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
-projects[solkit_wysiwyg][subdir] = solkit
+projects[profiler_builder][version] = 1.2
+projects[profiler_builder][subdir] = contrib
+
+; projects[solkit_wysiwyg][type] = module
+; projects[solkit_wysiwyg][download][type] = "git"
+; projects[solkit_wysiwyg][download][branch] = "master"
+; projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
+; projects[solkit_wysiwyg][subdir] = solkit
 
 ; **************** END CONTRIB *****************
 ; **********************************************

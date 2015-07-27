@@ -65,6 +65,7 @@ dependencies[] = defaultconfig
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
+dependencies[] = profiler_builder
 dependencies[] = ckeditor
 dependencies[] = radix_core
 dependencies[] = radix_layouts
