@@ -43,8 +43,8 @@ projects[panopoly_users][subdir] = panopoly
 projects[panopoly_pages][version] = 1.25
 projects[panopoly_pages][subdir] = panopoly
 
-projects[panopoly_wysiwyg][version] = 1.25
-projects[panopoly_wysiwyg][subdir] = panopoly
+; projects[panopoly_wysiwyg][version] = 1.25
+; projects[panopoly_wysiwyg][subdir] = panopoly
 
 projects[panopoly_search][version] = 1.25
 projects[panopoly_search][subdir] = panopoly

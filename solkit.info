@@ -40,7 +40,7 @@ dependencies[] = panopoly_users
 dependencies[] = panopoly_pages
 ; dependencies[] = panopoly_search
 dependencies[] = panopoly_seo
-dependencies[] = panopoly_wysiwyg
+; dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
@@ -62,7 +62,7 @@ dependencies[] = apps
 dependencies[] = defaultconfig
 
 ; SolKit Features
-dependencies[] = solkit_wysiwyg
+; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
 dependencies[] = ckeditor
