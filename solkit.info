@@ -39,6 +39,7 @@ dependencies[] = panopoly_users
 ; Panopoly Toolset
 dependencies[] = panopoly_pages
 ; dependencies[] = panopoly_search
+dependencies[] = panopoly_seo
 dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin & UI
@@ -57,4 +58,21 @@ dependencies[] = distro_update
 dependencies[] = uuid
 dependencies[] = apps
 
+; configuration
+dependencies[] = defaultconfig
+
+; SolKit Features
+dependencies[] = solkit_wysiwyg
+
+; SolKit Contrib
+dependencies[] = ckeditor
+dependencies[] = radix_core
 dependencies[] = radix_layouts
+dependencies[] = radix_views
+
+
+; ----------
+; Variables
+; ----------
+variables[admin_theme] = 'seven'
+variables[theme_default] = 'solwrap'
