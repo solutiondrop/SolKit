@@ -11,7 +11,7 @@ files[] = solkit.install
 files[] = solkit.profile
 
 ; Drupal Core
-dependencies[] = block
+; dependencies[] = block
 dependencies[] = menu
 dependencies[] = image
 dependencies[] = list
@@ -27,10 +27,6 @@ dependencies[] = file
 dependencies[] = dblog
 dependencies[] = update
 
-;
-; Panopoly Modules
-;
-
 ; Panopoly Foundation
 dependencies[] = panopoly_core
 dependencies[] = panopoly_images
@@ -42,7 +38,7 @@ dependencies[] = panopoly_users
 
 ; Panopoly Toolset
 dependencies[] = panopoly_pages
-dependencies[] = panopoly_search
+; dependencies[] = panopoly_search
 dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin & UI
@@ -61,6 +57,4 @@ dependencies[] = distro_update
 dependencies[] = uuid
 dependencies[] = apps
 
-
-; dependencies[] = radix_admin
 dependencies[] = radix_layouts

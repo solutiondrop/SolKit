@@ -2,39 +2,6 @@ api = 2
 core = 7.x
 
 ; **********************************************
-; ***************** CONTRIB ********************
-
-projects[solkit_wysiwyg][type] = module
-projects[solkit_wysiwyg][download][type] = "git"
-projects[solkit_wysiwyg][download][branch] = "master"
-projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
-projects[solkit_wysiwyg][subdir] = apps
-
-; **************** END CONTRIB *****************
-; **********************************************
-
-; ************************************************
-; ************** SolKit Themes **************
-
-; Radix
-; projects[radix_core][version] = 3.x-dev
-; projects[radix_core][subdir] = contrib
-
-; Radix Theme
-projects[radix][type] = theme
-projects[radix][download][type] = git
-projects[radix][download][revision] = c854057
-projects[radix][download][branch] = 7.x-3.x
-
-projects[solwrap][type] = theme
-projects[solwrap][download][type] = git
-projects[solwrap][download][branch] = master
-projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
-
-; *********** End SolKit Themes *************
-; ************************************************
-
-; **********************************************
 ; ***************** PANOPOLY *******************
 
 ; Note that makefiles are parsed bottom-up, and that in Drush concurrency might
@@ -47,7 +14,6 @@ projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 ;projects[panopoly][version] = 7.x-1.25
 ; but, Drupal.org does not support recursive profiles and also does not support
 ; include[] so we need to copy Panopoly's drupal-org.make file here.
-
 
 ; The Panopoly Foundation
 
@@ -83,10 +49,57 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 projects[panopoly_search][version] = 1.25
 projects[panopoly_search][subdir] = panopoly
 
-; For running the automated tests.
+; Panopoly Recommended
 
-projects[panopoly_test][version] = 1.25
-projects[panopoly_test][subdir] = panopoly
+projects[devel][version] = 1.5
+projects[devel][subdir] = contrib
+
+; Panopoly Other
+
+projects[panopoly_config][version] = 1.x-dev
+projects[panopoly_config][subdir] = panopoly
+projects[panopoly_config][download][type] = git
+projects[panopoly_config][download][branch] = 7.x-1.x
+
+projects[panopoly_seo][version] = 1.0-beta3
+projects[panopoly_seo][subdir] = panopoly
 
 ; **************** END PANOPOLY ****************
+; **********************************************
+
+; Radix
+
+projects[radix_core][version] = 1.x-dev
+projects[radix_core][subdir] = contrib
+projects[radix_core][download][type] = git
+projects[radix_core][download][branch] = 7.x-3.x
+projects[radix_core][download][revision] = b52ea5d
+
+; Radix Theme
+; projects[radix][type] = theme
+; projects[radix][download][type] = git
+; projects[radix][download][revision] = c854057
+; projects[radix][download][branch] = 7.x-3.x
+
+; ************************************************
+; ************** SolKit Themes **************
+
+projects[solwrap][type] = theme
+projects[solwrap][download][type] = git
+projects[solwrap][download][branch] = master
+projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
+
+; *********** End SolKit Themes *************
+; ************************************************
+
+; **********************************************
+; ***************** CONTRIB ********************
+
+projects[solkit_wysiwyg][type] = module
+projects[solkit_wysiwyg][download][type] = "git"
+projects[solkit_wysiwyg][download][branch] = "master"
+projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
+projects[solkit_wysiwyg][subdir] = solkit
+
+; **************** END CONTRIB *****************
 ; **********************************************

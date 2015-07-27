@@ -4,6 +4,11 @@
  * Install, update and uninstall functions.
  */
 
+define('DISTRIBUTION_NAME', 'Open Restaurant');
+
+// Installation theme
+define('INSTALL_THEME', 'restaurant_octal');
+
 /**
  * Implements hook_install().
  */
@@ -11,6 +16,41 @@ function solkit_install() {
   // Set the default theme.
   _solkit_set_up_theme();
 }
+
+/**
+ * Implements hook_install_tasks().
+ */
+function solkit_install_tasks($install_state) {
+  $tasks = array();
+
+  // Set the page title.
+  drupal_set_title(DISTRIBUTION_NAME);
+
+  // Hide status messages for some tasks.
+  $tasks_to_show_messages = array(
+    'install_verify_requirements'
+  );
+  if (!in_array($install_state['active_task'], $tasks_to_show_messages)) {
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('warning', TRUE);
+  }
+
+  // Load tasks for installation type.
+  $selected_installation_type = _solkit_get_selected_installation_type();
+  $install_tasks_callback = $selected_installation_type . '_install_tasks';
+  if (function_exists($install_tasks_callback)) {
+    $tasks = call_user_func($install_tasks_callback, $tasks, $install_state);
+  }
+
+  // Add a task to configure SolKit.
+  $tasks['solkit_configure_restaurant'] = array(
+    'display_name' => st('Configure restaurant'),
+    'type' => 'form',
+  );
+
+  return $tasks;
+}
+
 
 /**
  * Set the default theme.
