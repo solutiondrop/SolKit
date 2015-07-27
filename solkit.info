@@ -65,8 +65,10 @@ dependencies[] = defaultconfig
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
-dependencies[] = profiler_builder
 dependencies[] = ckeditor
+dependencies[] = features_override
+dependencies[] = profiler_builder
+dependencies[] = profiler_builder_extras
 dependencies[] = radix_core
 dependencies[] = radix_layouts
 dependencies[] = radix_views
@@ -75,5 +77,3 @@ dependencies[] = radix_views
 ; ----------
 ; Variables
 ; ----------
-variables[admin_theme] = 'seven'
-variables[theme_default] = 'solwrap'
