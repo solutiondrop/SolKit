@@ -7,3 +7,7 @@ projects[drupal][version] = 7.38
 
 ; Bug with image styles on database update
 projects[drupal][patch][1973278] = http://www.drupal.org/files/issues/image-accommodate_missing_definition-1973278-16.patch
+
+; Ignore node vendor folders to improve directory search performance
+projects[drupal][patch][2329453] = http://www.drupal.org/files/issues/2329453-8-ignore_node_modules_directory.patch
+
