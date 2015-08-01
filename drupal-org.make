@@ -101,12 +101,92 @@ projects[features_override][download][type] = git
 projects[features_override][download][branch] = 7.x-2.x
 projects[features_override][subdir] = contrib
 
+; advagg
+projects[advagg][version] = 2.14
+projects[advagg][subdir] = contrib
+
+; blockify
+projects[blockify][version] = 1.2
+projects[blockify][subdir] = contrib
+
+; cacheflush
+projects[cacheflush][version] = 3.0-alpha1
+projects[cacheflush][subdir] = contrib
+
+; clean_markup
+projects[clean_markup][version] = 2.7
+projects[clean_markup][subdir] = contrib
+
 ; CKeditor
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
+; ds
+projects[ds][version] = 2.11
+projects[ds][subdir] = contrib
+
+; elements
+projects[elements][version] = 1.4
+projects[elements][subdir] = contrib
+
+; fences
+projects[fences][version] = 1.0
+projects[fences][subdir] = contrib
+
+; field_collection
+projects[field_collection][version] = 1.0-beta8
+projects[field_collection][subdir] = contrib
+
+; google_analytics
+projects[google_analytics][version] = 2.1
+projects[google_analytics][subdir] = contrib
+
+; hotjar
+projects[hotjar][version] = 1.0
+projects[hotjar][subdir] = contrib
+
+; html5_tools
+projects[html5_tools][version] = 1.2
+projects[html5_tools][subdir] = contrib
+
+; mailchimp
+projects[mailchimp][version] = 3.4
+projects[mailchimp][subdir] = contrib
+
+; mailsystem
+projects[mailsystem][version] = 2.34
+projects[mailsystem][subdir] = contrib
+
+; mandrill
+projects[mandrill][version] = 2.1
+projects[mandrill][subdir] = contrib
+
+; picture
+projects[picture][version] = 2.11
+projects[picture][subdir] = contrib
+
+; profiler_builder
 projects[profiler_builder][version] = 1.2
 projects[profiler_builder][subdir] = contrib
+
+; responsive_favicons
+projects[responsive_favicons][version] = 1.0
+projects[responsive_favicons][subdir] = contrib
+
+; semanticviews
+projects[semanticviews][version] = 1.0-rc2
+projects[semanticviews][subdir] = contrib
+
+; webform
+projects[webform][version] = 4.10
+projects[webform][subdir] = contrib
+
+; Link Widget Sandbox module
+projects[link_widget][type] = module
+projects[link_widget][download][type] = "git"
+projects[link_widget][download][branch] = "7.x-1.x"
+projects[link_widget][download][url] = "http://git.drupal.org/sandbox/droath/1992732.git"
+projects[link_widget][subdir] = contrib
 
 ; projects[solkit_wysiwyg][type] = module
 ; projects[solkit_wysiwyg][download][type] = "git"
