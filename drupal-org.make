@@ -96,9 +96,12 @@ projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 ; ***************** CONTRIB ********************
 
 ; Features Override
-projects[features_override][type] = module
-projects[features_override][download][type] = git
-projects[features_override][download][branch] = 7.x-2.x
+; projects[features_override][type] = module
+; projects[features_override][download][type] = git
+; projects[features_override][download][branch] = 7.x-2.x
+; projects[features_override][subdir] = contrib
+
+projects[features_override][version] = 2.0-rc2
 projects[features_override][subdir] = contrib
 
 ; advagg

@@ -65,14 +65,18 @@ dependencies[] = defaultconfig
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
+dependencies[] = clean_markup
 dependencies[] = ckeditor
+dependencies[] = elements
 dependencies[] = features_override
+dependencies[] = html5_tools
+dependencies[] = picture
 dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
+dependencies[] = semanticviews
 dependencies[] = radix_core
 dependencies[] = radix_layouts
 dependencies[] = radix_views
-
 
 ; ----------
 ; Variables
