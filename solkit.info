@@ -74,7 +74,6 @@ dependencies[] = picture
 dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
 dependencies[] = semanticviews
-dependencies[] = radix_core
 dependencies[] = radix_layouts
 dependencies[] = radix_views
 

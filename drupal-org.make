@@ -61,6 +61,9 @@ projects[panopoly_config][subdir] = panopoly
 projects[panopoly_config][download][type] = git
 projects[panopoly_config][download][branch] = 7.x-1.x
 
+projects[variable][version] = 2.5
+projects[variable][subdir] = contrib
+
 projects[panopoly_seo][version] = 1.0-beta3
 projects[panopoly_seo][subdir] = panopoly
 
@@ -69,17 +72,27 @@ projects[panopoly_seo][subdir] = panopoly
 
 ; Radix
 
-projects[radix_core][version] = 1.x-dev
-projects[radix_core][subdir] = contrib
-projects[radix_core][download][type] = git
-projects[radix_core][download][branch] = 7.x-3.x
-projects[radix_core][download][revision] = b52ea5d
+; projects[radix_core][version] = 1.x-dev
+; projects[radix_core][subdir] = contrib
+; projects[radix_core][download][type] = git
+; projects[radix_core][download][branch] = 7.x-3.x
+; projects[radix_core][download][revision] = b52ea5d
 
 ; Radix Theme
-; projects[radix][type] = theme
-; projects[radix][download][type] = git
-; projects[radix][download][revision] = c854057
-; projects[radix][download][branch] = 7.x-3.x
+
+projects[radix][type] = theme
+projects[radix][version] = 3.0-rc4
+
+; Radix Modules
+
+; projects[radix_layouts][type] = module
+; projects[radix_layouts][download][type] = git
+; projects[radix_layouts][version] = 3.4
+; projects[radix_layouts][subdir] = contrib
+
+projects[radix_views][version] = 1.0
+projects[radix_views][subdir] = contrib
+
 
 ; ************************************************
 ; ************** SolKit Themes **************
@@ -96,11 +109,6 @@ projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 ; ***************** CONTRIB ********************
 
 ; Features Override
-; projects[features_override][type] = module
-; projects[features_override][download][type] = git
-; projects[features_override][download][branch] = 7.x-2.x
-; projects[features_override][subdir] = contrib
-
 projects[features_override][version] = 2.0-rc2
 projects[features_override][subdir] = contrib
 
@@ -190,6 +198,13 @@ projects[link_widget][download][type] = "git"
 projects[link_widget][download][branch] = "7.x-1.x"
 projects[link_widget][download][url] = "http://git.drupal.org/sandbox/droath/1992732.git"
 projects[link_widget][subdir] = contrib
+
+; Field Widget Storage API Sandbox module
+projects[field_widget_sql_storage][type] = module
+projects[field_widget_sql_storage][download][type] = "git"
+projects[field_widget_sql_storage][download][branch] = "7.x-1.x"
+projects[field_widget_sql_storage][download][url] = "http://git.drupal.org/sandbox/droath/1992692.git"
+projects[field_widget_sql_storage][subdir] = contrib
 
 ; projects[solkit_wysiwyg][type] = module
 ; projects[solkit_wysiwyg][download][type] = "git"
