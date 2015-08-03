@@ -85,14 +85,11 @@ projects[radix][version] = 3.0-rc4
 
 ; Radix Modules
 
-; projects[radix_layouts][type] = module
-; projects[radix_layouts][download][type] = git
-; projects[radix_layouts][version] = 3.4
-; projects[radix_layouts][subdir] = contrib
+projects[radix_colorizer][version] = 1.x-dev
+projects[radix_colorizer][subdir] = contrib
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
-
 
 ; ************************************************
 ; ************** SolKit Themes **************
@@ -131,6 +128,9 @@ projects[clean_markup][subdir] = contrib
 ; CKeditor
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
+
+projects[colorizer][version] = 1.7
+projects[colorizer][subdir] = contrib
 
 ; ds
 projects[ds][version] = 2.11
