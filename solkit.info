@@ -65,10 +65,13 @@ dependencies[] = defaultconfig
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
+dependencies[] = blockify
+dependencies[] = browsersync
 dependencies[] = clean_markup
 dependencies[] = ckeditor
 dependencies[] = elements
 dependencies[] = features_override
+dependencies[] = fences
 dependencies[] = html5_tools
 dependencies[] = picture
 dependencies[] = profiler_builder

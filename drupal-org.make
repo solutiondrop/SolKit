@@ -70,21 +70,11 @@ projects[panopoly_seo][subdir] = panopoly
 ; **************** END PANOPOLY ****************
 ; **********************************************
 
-; Radix
-
-; projects[radix_core][version] = 1.x-dev
-; projects[radix_core][subdir] = contrib
-; projects[radix_core][download][type] = git
-; projects[radix_core][download][branch] = 7.x-3.x
-; projects[radix_core][download][revision] = b52ea5d
-
 ; Radix Theme
-
 projects[radix][type] = theme
 projects[radix][version] = 3.0-rc4
 
 ; Radix Modules
-
 projects[radix_colorizer][version] = 1.x-dev
 projects[radix_colorizer][subdir] = contrib
 
@@ -117,7 +107,11 @@ projects[advagg][subdir] = contrib
 projects[blockify][version] = 1.2
 projects[blockify][subdir] = contrib
 
-; cacheflush
+; browsersync
+projects[browsersync][version] = 1.0
+projects[browsersync][subdir] = contrib
+
+; cacheflush - useful for giving cache clearing capabilities for client
 projects[cacheflush][version] = 3.0-alpha1
 projects[cacheflush][subdir] = contrib
 
@@ -125,10 +119,11 @@ projects[cacheflush][subdir] = contrib
 projects[clean_markup][version] = 2.7
 projects[clean_markup][subdir] = contrib
 
-; CKeditor
+; ckeditor
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
+; colorizer
 projects[colorizer][version] = 1.7
 projects[colorizer][subdir] = contrib
 
@@ -139,6 +134,10 @@ projects[ds][subdir] = contrib
 ; elements
 projects[elements][version] = 1.4
 projects[elements][subdir] = contrib
+
+; entity_view_mode
+projects[entity_view_mode][version] = 1.0-rc1
+projects[entity_view_mode][subdir] = contrib
 
 ; fences
 projects[fences][version] = 1.0
@@ -152,7 +151,7 @@ projects[field_collection][subdir] = contrib
 projects[google_analytics][version] = 2.1
 projects[google_analytics][subdir] = contrib
 
-; hotjar
+; hotjar - for my clients that want heatmaps of certain pages
 projects[hotjar][version] = 1.0
 projects[hotjar][subdir] = contrib
 
@@ -160,7 +159,7 @@ projects[hotjar][subdir] = contrib
 projects[html5_tools][version] = 1.2
 projects[html5_tools][subdir] = contrib
 
-; mailchimp
+; mailchimp - almost all my clients use mailchimp
 projects[mailchimp][version] = 3.4
 projects[mailchimp][subdir] = contrib
 
@@ -168,7 +167,7 @@ projects[mailchimp][subdir] = contrib
 projects[mailsystem][version] = 2.34
 projects[mailsystem][subdir] = contrib
 
-; mandrill
+; mandrill - For contact forms I like to send the emails via mandrill which needs a client account
 projects[mandrill][version] = 2.1
 projects[mandrill][subdir] = contrib
 
@@ -176,11 +175,11 @@ projects[mandrill][subdir] = contrib
 projects[picture][version] = 2.11
 projects[picture][subdir] = contrib
 
-; profiler_builder
+; profiler_builder - will remove after the profile is complete
 projects[profiler_builder][version] = 1.2
 projects[profiler_builder][subdir] = contrib
 
-; responsive_favicons
+; responsive_favicons - I'm going to look into this - it may be overkill
 projects[responsive_favicons][version] = 1.0
 projects[responsive_favicons][subdir] = contrib
 
@@ -192,20 +191,21 @@ projects[semanticviews][subdir] = contrib
 projects[webform][version] = 4.10
 projects[webform][subdir] = contrib
 
-; Link Widget Sandbox module
+; Link Widget Sandbox module - for wrapping links around image of text field type output
 projects[link_widget][type] = module
 projects[link_widget][download][type] = "git"
 projects[link_widget][download][branch] = "7.x-1.x"
 projects[link_widget][download][url] = "http://git.drupal.org/sandbox/droath/1992732.git"
 projects[link_widget][subdir] = contrib
 
-; Field Widget Storage API Sandbox module
+; Field Widget Storage API Sandbox module - for Link Widget
 projects[field_widget_sql_storage][type] = module
 projects[field_widget_sql_storage][download][type] = "git"
 projects[field_widget_sql_storage][download][branch] = "7.x-1.x"
 projects[field_widget_sql_storage][download][url] = "http://git.drupal.org/sandbox/droath/1992692.git"
 projects[field_widget_sql_storage][subdir] = contrib
 
+; REMOVE?
 ; projects[solkit_wysiwyg][type] = module
 ; projects[solkit_wysiwyg][download][type] = "git"
 ; projects[solkit_wysiwyg][download][branch] = "master"

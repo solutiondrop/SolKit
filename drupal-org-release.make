@@ -59,8 +59,8 @@ projects[panopoly_search][subdir] = panopoly
 
 ; For running the automated tests.
 
-projects[panopoly_test][version] = 1.25
-projects[panopoly_test][subdir] = panopoly
+; projects[panopoly_test][version] = 1.25
+; projects[panopoly_test][subdir] = panopoly
 
 ; **************** END PANOPOLY ****************
 ; **********************************************
