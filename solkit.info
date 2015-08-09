@@ -39,8 +39,11 @@ dependencies[] = panopoly_users
 ; Panopoly Toolset
 dependencies[] = panopoly_pages
 ; dependencies[] = panopoly_search
-dependencies[] = panopoly_seo
 ; dependencies[] = panopoly_wysiwyg
+
+; Panopoly Contrib
+dependencies[] = panopoly_config
+dependencies[] = panopoly_seo
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
@@ -53,15 +56,18 @@ dependencies[] = date_popup_authored
 dependencies[] = views_ui
 
 ; Panopoly Recommended - Other
-dependencies[] = devel
+; dependencies[] = devel
 dependencies[] = distro_update
-dependencies[] = uuid
-dependencies[] = apps
+; dependencies[] = uuid
+; dependencies[] = apps
 
 ; configuration
 dependencies[] = defaultconfig
 
 ; SolKit Features
+; dependencies[] = solkit_admin
+; dependencies[] = solkit_seo
+dependencies[] = solkit_theme
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib

@@ -1,101 +1,352 @@
 <?php
-/**
- * @file solkit.install
- * Install, update and uninstall functions.
- */
+
+// Include files installation types.
+include_once 'includes/quick.inc';
+include_once 'includes/standard.inc';
 
 /**
- * Implements hook_install().
+ * Implements hook_install_tasks().
  */
-function solkit_install() {
-  // Set the default theme.
-  _solkit_set_up_theme();
+function solkit_install_tasks($install_state) {
+  $tasks = array();
 
-  // Enable some solkit blocks.
-  $default_theme = 'solwrap';
-  $admin_theme = 'seven';
-  // disable all themes
-  db_update('system')
-    ->fields(array('status' => 0))
-    ->condition('type', 'theme')
-    ->execute();
-  // enable $default_theme
-  db_update('system')
-    ->fields(array('status' => 1))
-    ->condition('type', 'theme')
-    ->condition('name', $default_theme)
-    ->execute();
-  // enable $admin_theme
-  db_update('system')
-    ->fields(array('status' => 1))
-    ->condition('type', 'theme')
-    ->condition('name', $admin_theme)
-    ->execute();
-  variable_set('theme_default', $default_theme);
-  variable_set('admin_theme', $admin_theme);
-  // activate admin theme when editing a node
-  variable_set('node_admin_theme', '1');
-  $blocks = array(
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -10,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
+  // Remove status messages.
+  drupal_get_messages('status', TRUE);
+  drupal_get_messages('warning', TRUE);
+
+  // Load tasks for installation type.
+  $selected_installation_type = _solkit_get_selected_installation_type();
+  $install_tasks_callback = $selected_installation_type . '_install_tasks';
+  if (function_exists($install_tasks_callback)) {
+    $tasks = call_user_func($install_tasks_callback, $install_state);
+  }
+
+  // Add a task to configure SolKit.
+  $tasks['solkit_configure_solkit'] = array(
+    'display_name' => st('Configure SolKit'),
+    'type' => 'form',
+  );
+
+  return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks_alter()
+ */
+function solkit_install_tasks_alter(&$tasks, $install_state) {
+  // Set the install theme to restaurant_octal.
+  _solkit_set_theme('restaurant_octal');
+
+  // Custom install_finished callback
+  $tasks['install_finished']['display_name'] = st('Completed');
+  $tasks['install_finished']['function'] = 'solkit_install_finished';
+
+  $tasks['install_select_profile']['display'] = FALSE;
+  $tasks['install_select_profile']['run'] = INSTALL_TASK_SKIP;
+  $tasks['install_select_locale']['display'] = FALSE;
+  $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
+
+  // Add a welcome screen
+  $welcome_task['solkit_install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+  );
+  $tasks_copy = $tasks;
+  $tasks = array_slice($tasks_copy, 0, 2) + $welcome_task + array_slice($tasks_copy, 2);
+
+  // Add a task to select the installation type.
+  $installation_types = solkit_get_installation_types();
+  if (count($installation_types)) {
+    $installation_type_task['solkit_select_installation_type'] = array(
+      'display' => TRUE,
+      'display_name' => st('Installation type'),
+      'type' => 'form',
+      'run' => isset($install_state['parameters']['select_installation_type']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+    );
+    $tasks_copy = $tasks;
+    $tasks = array_slice($tasks_copy, 0, 3) + $installation_type_task + array_slice($tasks_copy, 3);
+  }
+
+  // Load tasks for installation type.
+  $selected_installation_type = solkit_get_selected_installation_type();
+  $tasks_alter_callback = $selected_installation_type . '_tasks_alter';
+  if (function_exists($tasks_alter_callback)) {
+    $tasks = call_user_func($tasks_alter_callback, $tasks, $install_state);
+  }
+
+  // Magically go one level deeper in solving years of dependency problems
+//  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+//  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+}
+
+/**
+ * Shows the welcome screen for the SolKit profile.
+ */
+function solkit_install_welcome($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Welcome'));
+
+  $message = '<h3>' . st('Thank you for choosing the SolKit Distribution!') . '</h3>';
+  $message .= '<p class="lead">' . st('The Solkit Distribution has everything you need to build your Solution Drop website.') . '</p>';
+  $message .= '<h4>Features</h4>
+<ul>
+<li>Built on top of Panopoly</li>
+<li>SEO & Marketing Feature</li>
+</ul>';
+
+  $form['welcome_message'] = array(
+    '#markup' => $message,
+  );
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Let's get started"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-lg', 'btn-primary'),
     ),
   );
 
+  return $form;
+}
+
+function solkit_install_welcome_submit($form, &$form_state) {
+  global $install_state;
+
+  // mark welcome step as done
+  $install_state['parameters']['welcome'] = 'done';
+
+  // add default parameters
+  $install_state['parameters']['profile'] = 'solkit';
+  $install_state['parameters']['locale'] = 'en';
+}
+
+function solkit_select_installation_type($form, &$form_state) {
+  // Add installation types.
+  $installation_types = solkit_get_installation_types();
+  $form_state['input']['installation_type'] = 'quick';
+  $form['installation_type'] = array(
+    '#prefix' => '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' . st('Select an installation type:') . '</h3></div><div class="panel-body">',
+    '#suffix' => '</div></div>',
+    '#tree' => TRUE,
+  );
+  foreach ($installation_types as $type => $values) {
+    $label = st('!type - @description', array(
+      '!type' => '<strong>' . $values['title'] . '</strong>',
+      '@description' => $values['description'],
+    ));
+//    $form['installation_type']['#options'][$type] = $label;
+    $form['installation_type'][$type] = array(
+      '#type' => 'radio',
+      '#title' => $values['title'],
+      '#description' => $values['description'],
+      '#value' => 'quick',
+      '#return_value' => $type,
+      '#parents' => array('installation_type'),
+    );
+  }
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Launch installation"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-lg', 'btn-primary'),
+    ),
+  );
+
+  return $form;
+}
+
+function solkit_select_installation_type_submit($form, &$form_state) {
+  global $install_state;
+
+  // Set the installation type.
+  $install_state['parameters']['installation_type'] = $form_state['input']['installation_type'];
+  $install_state['parameters']['select_installation_type'] = 'done';
 }
 
 /**
- * Set the default theme.
+ * Callback for configure SolKit.
  */
-function _solkit_set_up_theme() {
+function solkit_configure_solkit($form, &$form_state, &$install_state) {
+  module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
+  $form += panopoly_config_get_profile_form();
+  return $form;
+}
+
+function solkit_submit($form, &$form_state) {
+  //
+}
+
+/**
+ * Callback for install_finished task
+ */
+function solkit_install_finished(&$install_state) {
+  drupal_set_title(st('Installation complete'));
+
+  $messages = drupal_set_message();
+
+  // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+  variable_set('install_task', 'done');
+
+  // Disable some unwanted modules.
+  $unwanted = array('overlay', 'dblog');
+  module_disable($unwanted);
+
+  // Set the default theme.
   $theme = 'solwrap';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
-  theme_disable(array('responsive_bartik', 'bartik'));
+
+  // Set the admin theme.
+  $admin_theme = 'seven';
+  theme_enable(array($admin_theme));
+  variable_set('admin_theme', $admin_theme);
+
+  // Set the node admin theme.
+  variable_set('node_admin_theme', 1);
+
+  // Enable clean urls.
+  variable_set('clean_url', 1);
+ 
+  // Flush theme caches so things are right.
+  system_rebuild_theme_data();
+  drupal_theme_rebuild();
+
+  // Flush all caches to ensure that any full bootstraps during the installer
+  // do not leave stale cached data, and that any content types or other items
+  // registered by the install profile are registered correctly.
+  drupal_flush_all_caches();
+
+  // Install profiles are always loaded last
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Cache a fully-built schema.
+  drupal_get_schema(NULL, TRUE);
+
+  // Revert the demo module to fix https://www.drupal.org/node/2322661.
+  // if (!$install_state['interactive']) {
+  //   features_revert(array('solkit_demo' => array('variable')));
+  // }
+
+  // Run cron to populate update status tables (if available) so that users
+  // will be warned if they've installed an out of date Drupal version.
+  // Will also trigger indexing of profile-supplied content or feeds.
+//  drupal_cron_run();
+
+  if (isset($messages['error'])) {
+    $output = '<p class="lead">' . st('You have successfully installed the SolKit Distribution.') . '</p>';
+//    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+    $output .= l(st('View site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
+    return $output;
+  }
+  else {
+    // Since any module can add a drupal_set_message, this can bug the user
+    // when we redirect him to the front page. For a better user experience,
+    // remove all the message that are only "notifications" message.
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('completed', TRUE);
+
+    // If we don't install drupal using Drush, redirect the user to the front page.
+    if (!drupal_is_cli()) {
+      drupal_goto('');
+    }
+  }
 }
+
+/**
+ * Helper function to insert a key/value pair before an existing key
+ * Used to re-order the install tasks array
+ */
+function _solkit_tasks_insert_before_key( $originalArray, $originalKey, $insertKey, $insertValue ) {
+  $newArray = array();
+  $inserted = false;
+  foreach ($originalArray as $key => $value) {
+    if (!$inserted && ($key === $originalKey)) {
+      $newArray[$insertKey] = $insertValue;
+      $inserted = true;
+    }
+    $newArray[$key] = $value;
+  }
+  return $newArray;
+}
+
+/**
+ * Sets the installation theme for SolKit profile
+ */
+function _solkit_set_theme($theme) {
+  if ($GLOBALS['theme'] != $theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $theme;
+    _drupal_maintenance_theme();
+  }
+}
+
+/**
+ * array_filter() callback used to filter out already installed dependencies.
+ */
+function _solkit_filter_dependencies($dependency) {
+  return !module_exists($dependency);
+}
+
+/**
+ * Helper function to get the installation types.
+ */
+function _solkit_get_installation_types() {
+  return array(
+    'quick' => array(
+      'title' => st('Quick (recommended)'),
+      'description' => st('Install using a set of predefined settings.'),
+    ),
+    'standard' => array(
+      'title' => st('Standard'),
+      'description' => st('Install by customizing your distribution.'),
+    ),
+  );
+}
+
+/**
+ * Helper function to get the selected installation type.
+ */
+function _solkit_get_selected_installation_type() {
+  global $install_state;
+  $type = 'quick'; // Default is quick.
+
+  // XXXXX REMOVE SO QUICK IS AUTOMATIC XXXXX
+  // Check if installation_type is set.
+  if (!empty($install_state['parameters']['installation_type'])) {
+    $type = $install_state['parameters']['installation_type'];
+  }
+
+  return $type;
+}
+
+/**
+ * Returns a list of demo modules.
+ */
+// function _solkit_get_demo_modules() {
+//   return array(
+//     'restaurant_blog_demo',
+//     'restaurant_event_demo',
+//     'restaurant_menu_demo',
+//     'restaurant_location_demo',
+//     'restaurant_reservation_demo',
+//   );
+// }

@@ -92,6 +92,33 @@ projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 ; *********** End SolKit Themes *************
 ; ************************************************
 
+; ************************************************
+; ************** SolKit MODULES **************
+
+projects[solkit_theme][type] = module
+projects[solkit_theme][subdir] = solkit
+projects[solkit_theme][download][type] = git
+projects[solkit_theme][download][branch] = master
+projects[solkit_theme][download][url] = https://github.com/solutiondrop/solkit_theme.git
+
+projects[solkit_admin][type] = module
+projects[solkit_admin][subdir] = solkit
+projects[solkit_admin][download][type] = git
+projects[solkit_admin][download][branch] = master
+projects[solkit_admin][download][url] = https://github.com/solutiondrop/solkit_admin.git
+
+; SolKit Apps
+
+projects[solkit_seo][type] = module
+projects[solkit_seo][subdir] = solkit
+projects[solkit_seo][download][type] = git
+projects[solkit_seo][download][branch] = master
+projects[solkit_seo][download][url] = https://github.com/solutiondrop/solkit_seo.git
+
+; *********** End SolKit MODULES *************
+; ************************************************
+
+
 ; **********************************************
 ; ***************** CONTRIB ********************
 
@@ -204,13 +231,6 @@ projects[field_widget_sql_storage][download][type] = "git"
 projects[field_widget_sql_storage][download][branch] = "7.x-1.x"
 projects[field_widget_sql_storage][download][url] = "http://git.drupal.org/sandbox/droath/1992692.git"
 projects[field_widget_sql_storage][subdir] = contrib
-
-; REMOVE?
-; projects[solkit_wysiwyg][type] = module
-; projects[solkit_wysiwyg][download][type] = "git"
-; projects[solkit_wysiwyg][download][branch] = "master"
-; projects[solkit_wysiwyg][download][url] = "https://github.com/solutiondrop/SolKit-WYSIWYG.git"
-; projects[solkit_wysiwyg][subdir] = solkit
 
 ; **************** END CONTRIB *****************
 ; **********************************************
