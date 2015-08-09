@@ -4,15 +4,29 @@
 include_once 'includes/quick.inc';
 include_once 'includes/standard.inc';
 
+define('DISTRIBUTION_NAME', 'SolKit');
+
+// Installation theme
+//define('INSTALL_THEME', 'restaurant_radix');
+define('INSTALL_THEME', 'restaurant_octal');
+
 /**
  * Implements hook_install_tasks().
  */
 function solkit_install_tasks($install_state) {
   $tasks = array();
 
-  // Remove status messages.
-  drupal_get_messages('status', TRUE);
-  drupal_get_messages('warning', TRUE);
+  // Set the page title.
+  drupal_set_title(DISTRIBUTION_NAME);
+
+  // Hide status messages for some tasks.
+  $tasks_to_show_messages = array(
+    'install_verify_requirements'
+  );
+  if (!in_array($install_state['active_task'], $tasks_to_show_messages)) {
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('warning', TRUE);
+  }
 
   // Load tasks for installation type.
   $selected_installation_type = _solkit_get_selected_installation_type();
@@ -34,8 +48,8 @@ function solkit_install_tasks($install_state) {
  * Implements hook_install_tasks_alter()
  */
 function solkit_install_tasks_alter(&$tasks, $install_state) {
-  // Set the install theme to restaurant_octal.
-  _solkit_set_theme('restaurant_octal');
+  // Set the install theme.
+  _restaurant_set_theme(INSTALL_THEME);
 
   // Custom install_finished callback
   $tasks['install_finished']['display_name'] = st('Completed');
@@ -57,7 +71,7 @@ function solkit_install_tasks_alter(&$tasks, $install_state) {
   $tasks = array_slice($tasks_copy, 0, 2) + $welcome_task + array_slice($tasks_copy, 2);
 
   // Add a task to select the installation type.
-  $installation_types = solkit_get_installation_types();
+  $installation_types = _solkit_get_installation_types();
   if (count($installation_types)) {
     $installation_type_task['solkit_select_installation_type'] = array(
       'display' => TRUE,
@@ -70,7 +84,7 @@ function solkit_install_tasks_alter(&$tasks, $install_state) {
   }
 
   // Load tasks for installation type.
-  $selected_installation_type = solkit_get_selected_installation_type();
+  $selected_installation_type = _solkit_get_selected_installation_type();
   $tasks_alter_callback = $selected_installation_type . '_tasks_alter';
   if (function_exists($tasks_alter_callback)) {
     $tasks = call_user_func($tasks_alter_callback, $tasks, $install_state);
@@ -94,6 +108,7 @@ function solkit_install_welcome($form, &$form_state, &$install_state) {
 <li>Built on top of Panopoly</li>
 <li>SEO & Marketing Feature</li>
 </ul>';
+  $message .= '<h4>Click on Launch Installation to setup your website.</h4>';
 
   $form['welcome_message'] = array(
     '#markup' => $message,
@@ -105,7 +120,7 @@ function solkit_install_welcome($form, &$form_state, &$install_state) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st("Let's get started"),
+    '#value' => st("Launch Installation"),
     '#weight' => 10,
     '#attributes' => array(
       'class' => array('btn', 'btn-lg', 'btn-primary'),
@@ -128,7 +143,7 @@ function solkit_install_welcome_submit($form, &$form_state) {
 
 function solkit_select_installation_type($form, &$form_state) {
   // Add installation types.
-  $installation_types = solkit_get_installation_types();
+  $installation_types = _solkit_get_installation_types();
   $form_state['input']['installation_type'] = 'quick';
   $form['installation_type'] = array(
     '#prefix' => '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' . st('Select an installation type:') . '</h3></div><div class="panel-body">',
@@ -250,7 +265,7 @@ function solkit_install_finished(&$install_state) {
 //  drupal_cron_run();
 
   if (isset($messages['error'])) {
-    $output = '<p class="lead">' . st('You have successfully installed the SolKit Distribution.') . '</p>';
+    $output = '<p class="lead">' . st('You have successfully installed @distribution.', array('@distribution' => DISTRIBUTION_NAME)) . '</p>';
 //    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     $output .= l(st('View site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
     return $output;
@@ -329,7 +344,6 @@ function _solkit_get_selected_installation_type() {
   global $install_state;
   $type = 'quick'; // Default is quick.
 
-  // XXXXX REMOVE SO QUICK IS AUTOMATIC XXXXX
   // Check if installation_type is set.
   if (!empty($install_state['parameters']['installation_type'])) {
     $type = $install_state['parameters']['installation_type'];

@@ -9,6 +9,9 @@
  * Implements hook_install_tasks().
  */
 function standard_install_tasks($tasks, $install_state) {
+//  // Install demo conntent
+//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+
   // Add a task to select features for Solkit.
   $tasks['solkit_select_features'] = array(
     'display_name' => st('Select features'),
@@ -20,6 +23,13 @@ function standard_install_tasks($tasks, $install_state) {
     'display_name' => st('Install features'),
     'type' => 'batch',
   );
+
+//  // Task to install demo content.
+//  $tasks['solkit_install_demo_content'] = array(
+//    'display_name' => st('Install demo content'),
+//    'type' => 'batch',
+//    'display' => $install_demo_content,
+//  );
 
   return $tasks;
 }
@@ -50,6 +60,13 @@ function solkit_select_features($form, &$form_state, &$install_state) {
     '#default_value' => array_keys($options_features),
   );
 
+//  $form['demo_content'] = array(
+//    '#type' => 'checkbox',
+//    '#title' => st('Install demo content?'),
+//    '#description' => st('Install demo content such as menus, events and blog posts.'),
+//    '#default_value' => '1',
+//  );
+
   $form['actions'] = array(
     '#type' => 'actions',
   );
@@ -68,6 +85,7 @@ function solkit_select_features($form, &$form_state, &$install_state) {
 
 function solkit_select_features_submit($form, &$form_state) {
   variable_set('solkit_features', $form_state['values']['features']);
+//  variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
 }
 
 /**
@@ -81,6 +99,28 @@ function solkit_install_features() {
   foreach ($features as $feature) {
     $modules[] = $feature;
   }
+
+//    // Install demo content.
+//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+//  if ($install_demo_content) {
+//    $modules[] = 'restaurant_pages';
+//    $modules[] = 'restaurant_demo';
+//    if (!empty($features['restaurant_blog'])) {
+//      $modules[] = 'restaurant_blog_demo';
+//    }
+//    if (!empty($features['restaurant_menu'])) {
+//      $modules[] = 'restaurant_menu_demo';
+//    }
+//    if (!empty($features['restaurant_event'])) {
+//      $modules[] = 'restaurant_event_demo';
+//    }
+//    if (!empty($features['restaurant_reservation'])) {
+//      $modules[] = 'restaurant_reservation_demo';
+//    }
+//    if (!empty($features['restaurant_location'])) {
+//      $modules[] = 'restaurant_location_demo';
+//    }
+//  }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
   // to do it later for each individual module (which kills performance).
@@ -114,6 +154,31 @@ function solkit_install_features() {
   return $batch;
 }
 
+///**
+// * Callback to install demo content
+// */
+//function restaurant_install_demo_content() {
+//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+//  $features = variable_get('restaurant_features', array());
+//  $operations = array();
+//
+//  if ($install_demo_content) {
+//    // Run all available migrations.
+//    $migrations = migrate_migrations();
+//    foreach ($migrations as $machine_name => $migration) {
+//      $operations[] = array('_restaurant_import', array($machine_name, t('Importing content.')));
+//    }
+//
+//    $batch = array(
+//      'title' => st('Installing demo content'),
+//      'operations' => $operations,
+//      'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+//    );
+//
+//    return $batch;
+//  }
+//}
+
 /**
  * BatchAPI callback.
  *
@@ -123,3 +188,17 @@ function _solkit_enable_module($module, $module_name, &$context) {
   module_enable(array($module), FALSE);
   $context['message'] = st('Installed %module module.', array('%module' => $module_name));
 }
+
+// /**
+//  * BatchAPI callback.
+//  *
+//  * @see restaurant_install_demo_content()
+//  */
+// function _restaurant_import($operation, $type, &$context) {
+//   $context['message'] = t('@operation', array('@operation' => $type));
+//   $migration =  Migration::getInstance($operation);
+//   $migration->resetStatus();
+//   $migration->processImport();
+// }
+
+
