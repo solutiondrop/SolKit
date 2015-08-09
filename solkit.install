@@ -49,7 +49,7 @@ function solkit_install_tasks($install_state) {
  */
 function solkit_install_tasks_alter(&$tasks, $install_state) {
   // Set the install theme.
-  _restaurant_set_theme(INSTALL_THEME);
+  _solkit_set_theme(INSTALL_THEME);
 
   // Custom install_finished callback
   $tasks['install_finished']['display_name'] = st('Completed');
