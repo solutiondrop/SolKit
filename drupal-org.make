@@ -152,8 +152,8 @@ projects[solkit_seo][download][url] = https://github.com/solutiondrop/solkit_seo
 ; projects[fences][subdir] = contrib
 
 ; field_collection
-; projects[field_collection][version] = 1.0-beta8
-; projects[field_collection][subdir] = contrib
+projects[field_collection][version] = 1.0-beta8
+projects[field_collection][subdir] = contrib
 
 ; google_analytics
 ; projects[google_analytics][version] = 2.1
@@ -179,6 +179,10 @@ projects[solkit_seo][download][url] = https://github.com/solutiondrop/solkit_seo
 ; projects[mandrill][version] = 2.1
 ; projects[mandrill][subdir] = contrib
 
+; panels_everywhere
+projects[panels_everywhere][version] = 1.0-rc1
+projects[panels_everywhere][subdir] = contrib
+
 ; picture
 ; projects[picture][version] = 2.11
 ; projects[picture][subdir] = contrib
@@ -192,8 +196,16 @@ projects[solkit_seo][download][url] = https://github.com/solutiondrop/solkit_seo
 ; projects[responsive_favicons][subdir] = contrib
 
 ; semanticviews
-; projects[semanticviews][version] = 1.0-rc2
-; projects[semanticviews][subdir] = contrib
+projects[semanticviews][version] = 1.0-rc2
+projects[semanticviews][subdir] = contrib
+
+; variable
+projects[variable][version] = 2.1
+projects[variable][subdir] = contrib
+
+; view_mode_templates
+projects[view_mode_templates][version] = 1.x-dev
+projects[view_mode_templates][subdir] = contrib
 
 ; webform
 ; projects[webform][version] = 4.10
@@ -291,8 +303,6 @@ projects[restaurant_seo][download][type] = git
 projects[restaurant_seo][download][branch] = 7.x-1.x
 projects[restaurant_seo][download][revision] = 7731562
 
-
-
-projects[ctools][version] = 1.7
-projects[ctools][subdir] = contrib
-projects[ctools][patch][2280853] = http://www.drupal.org/files/issues/ctools-keyboard-trap-2280853-37.patch
+; projects[ctools][version] = 1.7
+; projects[ctools][subdir] = contrib
+; projects[ctools][patch][2280853] = http://www.drupal.org/files/issues/ctools-keyboard-trap-2280853-37.patch
