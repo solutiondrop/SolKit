@@ -1,7 +1,7 @@
 <?php
 
 // Include files installation types.
-include_once 'includes/quick.inc';
+// include_once 'includes/quick.inc';
 include_once 'includes/standard.inc';
 
 define('DISTRIBUTION_NAME', 'SolKit');
