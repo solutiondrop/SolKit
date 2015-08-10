@@ -38,10 +38,11 @@ dependencies[] = panopoly_users
 ; Panopoly Toolset
 dependencies[] = panopoly_pages
 ; dependencies[] = panopoly_search
-; dependencies[] = panopoly_wysiwyg
+dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config
+dependencies[] = panopoly_seo
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
@@ -64,27 +65,27 @@ dependencies[] = views_ui
 
 ; SolKit Features
 ; dependencies[] = solkit_admin
-dependencies[] = solkit_seo
+; dependencies[] = solkit_seo
 dependencies[] = solkit_theme
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
 ; dependencies[] = blockify
-dependencies[] = admin_menu
-dependencies[] = admin_menu_toolbar
-dependencies[] = browsersync
-dependencies[] = clean_markup
-dependencies[] = ckeditor
-dependencies[] = elements
-dependencies[] = features_override
-dependencies[] = fences
-dependencies[] = html5_tools
-dependencies[] = picture
+; dependencies[] = admin_menu
+; dependencies[] = admin_menu_toolbar
+; dependencies[] = browsersync
+; dependencies[] = clean_markup
+; dependencies[] = ckeditor
+; dependencies[] = elements
+; dependencies[] = features_override
+; dependencies[] = fences
+; dependencies[] = html5_tools
+; dependencies[] = picture
 ; dependencies[] = profiler_builder
 ; dependencies[] = profiler_builder_extras
-dependencies[] = semanticviews
+; dependencies[] = semanticviews
 dependencies[] = radix_layouts
-dependencies[] = radix_views
+; dependencies[] = radix_views
 
 ; ----------
 ; Variables
