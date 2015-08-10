@@ -101,12 +101,18 @@ function solkit_install_tasks_alter(&$tasks, $install_state) {
 function solkit_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
-  $message = '<h3>' . st('Thank you for choosing the SolKit Distribution!') . '</h3>';
-  $message .= '<p class="lead">' . st('The Solkit Distribution has everything you need to build your Solution Drop website.') . '</p>';
+  $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
+  $message .= '<p class="lead">' . st('The Restaurant Distribution has everything you need to build your restaurant website.') . '</p>';
   $message .= '<h4>Features</h4>
 <ul>
-<li>Built on top of Panopoly</li>
-<li>SEO & Marketing Feature</li>
+<li>Menu management system.</li>
+<li>Built-in reservation system.</li>
+<li>A customizable blog for your restaurant.</li>
+<li>Events and calendar.</li>
+<li>Manage multiple restaurant locations and menus by location.</li>
+<li>Widgets: Map, social links, hours and location, and contact forms.</li>
+<li>Drag and drop functionality to build pages.</li>
+<li>Responsive out of the box. Works on all your devices.</li>
 </ul>';
   $message .= '<h4>Click on Launch Installation to setup your website.</h4>';
 
@@ -195,7 +201,7 @@ function solkit_select_installation_type_submit($form, &$form_state) {
  */
 function solkit_configure_solkit($form, &$form_state, &$install_state) {
   module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
-  $form += panopoly_config_get_profile_form();
+  $form += panopoly_config_get_profile_form($form, $form_state);
   return $form;
 }
 
@@ -216,11 +222,11 @@ function solkit_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   // Disable some unwanted modules.
-  $unwanted = array('overlay', 'dblog');
+  $unwanted = array('navbar', 'overlay', 'toolbar', 'dblog');
   module_disable($unwanted);
 
   // Set the default theme.
-  $theme = 'solwrap';
+  $theme = 'restaurant_radix';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
