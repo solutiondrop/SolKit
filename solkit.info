@@ -1,17 +1,16 @@
 name = SolKit
-distribution_name = SolKit
 description = Solkit is the Solution Drop distribution based on the Panopoly distribution
-core = "7.x"
-exclusive = 1
 version = "7.x-1.x"
+core = "7.x"
+distribution_name = SolKit
+exclusive = 1
 
-base[] = panopoly
+; base[] = panopoly
 
-files[] = solkit.install
-files[] = solkit.profile
+; files[] = solkit.install
+; files[] = solkit.profile
 
 ; Drupal Core
-; dependencies[] = block
 dependencies[] = menu
 dependencies[] = image
 dependencies[] = list
@@ -43,7 +42,7 @@ dependencies[] = panopoly_pages
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config
-dependencies[] = panopoly_seo
+; dependencies[] = panopoly_seo
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
@@ -57,21 +56,21 @@ dependencies[] = views_ui
 
 ; Panopoly Recommended - Other
 ; dependencies[] = devel
-dependencies[] = distro_update
+; dependencies[] = distro_update
 ; dependencies[] = uuid
 ; dependencies[] = apps
 
 ; configuration
-dependencies[] = defaultconfig
+; dependencies[] = defaultconfig
 
 ; SolKit Features
 ; dependencies[] = solkit_admin
 ; dependencies[] = solkit_seo
-dependencies[] = solkit_theme
+; dependencies[] = solkit_theme
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib
-dependencies[] = blockify
+; dependencies[] = blockify
 dependencies[] = browsersync
 dependencies[] = clean_markup
 dependencies[] = ckeditor
@@ -80,8 +79,8 @@ dependencies[] = features_override
 dependencies[] = fences
 dependencies[] = html5_tools
 dependencies[] = picture
-dependencies[] = profiler_builder
-dependencies[] = profiler_builder_extras
+; dependencies[] = profiler_builder
+; dependencies[] = profiler_builder_extras
 dependencies[] = semanticviews
 dependencies[] = radix_layouts
 dependencies[] = radix_views
