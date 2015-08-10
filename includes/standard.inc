@@ -9,8 +9,8 @@
  * Implements hook_install_tasks().
  */
 function standard_install_tasks($tasks, $install_state) {
-//  // Install demo conntent
-//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  // Install demo conntent
+  $install_demo_content = variable_get('solkit_demo_content', FALSE);
 
   // Add a task to select features for Solkit.
   $tasks['solkit_select_features'] = array(
@@ -24,12 +24,12 @@ function standard_install_tasks($tasks, $install_state) {
     'type' => 'batch',
   );
 
-//  // Task to install demo content.
-//  $tasks['solkit_install_demo_content'] = array(
-//    'display_name' => st('Install demo content'),
-//    'type' => 'batch',
-//    'display' => $install_demo_content,
-//  );
+  // Task to install demo content.
+  $tasks['solkit_install_demo_content'] = array(
+    'display_name' => st('Install demo content'),
+    'type' => 'batch',
+    'display' => $install_demo_content,
+  );
 
   return $tasks;
 }

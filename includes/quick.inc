@@ -112,7 +112,7 @@ function _install_from_db_install_db_import_finished($success, $results, $operat
   }
 
   // Copy files from demo modules.
-  // _install_from_db_copy_files();
+  _install_from_db_copy_files();
 }
 
 /**
