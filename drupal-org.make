@@ -1,20 +1,6 @@
 api = 2
 core = 7.x
 
-; **********************************************
-; ***************** PANOPOLY *******************
-
-; Note that makefiles are parsed bottom-up, and that in Drush concurrency might
-; interfere with recursion.
-; Therefore PANOPOLY needs to be listed AT THE BOTTOM of this makefile,
-; so we can patch or update certain projects fetched by Panopoly's makefiles.
-
-; Someday maybe we can turn this on to just inherit Panopoly
-;projects[panopoly][type] = profile
-;projects[panopoly][version] = 7.x-1.25
-; but, Drupal.org does not support recursive profiles and also does not support
-; include[] so we need to copy Panopoly's drupal-org.make file here.
-
 ; The Panopoly Foundation
 
 projects[panopoly_core][version] = 1.25
@@ -43,11 +29,11 @@ projects[panopoly_users][subdir] = panopoly
 projects[panopoly_pages][version] = 1.25
 projects[panopoly_pages][subdir] = panopoly
 
-; projects[panopoly_wysiwyg][version] = 1.25
-; projects[panopoly_wysiwyg][subdir] = panopoly
+projects[panopoly_wysiwyg][version] = 1.25
+projects[panopoly_wysiwyg][subdir] = panopoly
 
-projects[panopoly_search][version] = 1.25
-projects[panopoly_search][subdir] = panopoly
+; projects[panopoly_search][version] = 1.25
+; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
 
@@ -61,22 +47,12 @@ projects[panopoly_config][subdir] = panopoly
 projects[panopoly_config][download][type] = git
 projects[panopoly_config][download][branch] = 7.x-1.x
 
-projects[variable][version] = 2.5
-projects[variable][subdir] = contrib
-
 projects[panopoly_seo][version] = 1.0-beta3
 projects[panopoly_seo][subdir] = panopoly
-
-; **************** END PANOPOLY ****************
-; **********************************************
 
 ; Radix Theme
 projects[radix][type] = theme
 projects[radix][version] = 3.0-rc4
-
-; Radix Modules
-projects[radix_colorizer][version] = 1.x-dev
-projects[radix_colorizer][subdir] = contrib
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
@@ -234,3 +210,127 @@ projects[field_widget_sql_storage][subdir] = contrib
 
 ; **************** END CONTRIB *****************
 ; **********************************************
+
+
+; Restaurant
+
+projects[restaurant_base][version] = 1.x-dev
+projects[restaurant_base][type] = module
+projects[restaurant_base][subdir] = restaurant
+projects[restaurant_base][download][type] = git
+projects[restaurant_base][download][branch] = 7.x-1.x
+projects[restaurant_base][download][revision] = 64d5046
+
+projects[restaurant_theme][version] = 1.x-dev
+projects[restaurant_theme][type] = module
+projects[restaurant_theme][subdir] = restaurant
+projects[restaurant_theme][download][type] = git
+projects[restaurant_theme][download][branch] = 7.x-1.x
+projects[restaurant_theme][download][revision] = a885c10
+
+projects[restaurant_admin][version] = 1.x-dev
+projects[restaurant_admin][type] = module
+projects[restaurant_admin][subdir] = restaurant
+projects[restaurant_admin][download][type] = git
+projects[restaurant_admin][download][branch] = 7.x-1.x
+projects[restaurant_admin][download][revision] = d9e4f1f
+
+projects[restaurant_widgets][version] = 1.x-dev
+projects[restaurant_widgets][type] = module
+projects[restaurant_widgets][subdir] = restaurant
+projects[restaurant_widgets][download][type] = git
+projects[restaurant_widgets][download][branch] = 7.x-1.x
+projects[restaurant_widgets][download][revision] = c53389a
+
+projects[restaurant_plugins][version] = 1.x-dev
+projects[restaurant_plugins][type] = module
+projects[restaurant_plugins][subdir] = restaurant
+projects[restaurant_plugins][download][type] = git
+projects[restaurant_plugins][download][branch] = 7.x-1.x
+projects[restaurant_plugins][download][revision] = ce15d39
+
+projects[restaurant_mail][version] = 1.x-dev
+projects[restaurant_mail][type] = module
+projects[restaurant_mail][subdir] = restaurant
+projects[restaurant_mail][download][type] = git
+projects[restaurant_mail][download][branch] = 7.x-1.x
+projects[restaurant_mail][download][revision] = f543679
+
+projects[restaurant_user][version] = 1.x-dev
+projects[restaurant_user][type] = module
+projects[restaurant_user][subdir] = restaurant
+projects[restaurant_user][download][type] = git
+projects[restaurant_user][download][branch] = 7.x-1.x
+projects[restaurant_user][download][revision] = 164f6d1
+
+; Restaurant Apps
+
+projects[restaurant_menu][version] = 1.x-dev
+projects[restaurant_menu][type] = module
+projects[restaurant_menu][subdir] = restaurant
+projects[restaurant_menu][download][type] = git
+projects[restaurant_menu][download][branch] = 7.x-1.x
+projects[restaurant_menu][download][revision] = 3399216
+
+projects[restaurant_blog][version] = 1.x-dev
+projects[restaurant_blog][type] = module
+projects[restaurant_blog][subdir] = restaurant
+projects[restaurant_blog][download][type] = git
+projects[restaurant_blog][download][branch] = 7.x-1.x
+projects[restaurant_blog][download][revision] = 99769fc
+
+projects[restaurant_event][version] = 1.x-dev
+projects[restaurant_event][type] = module
+projects[restaurant_event][subdir] = restaurant
+projects[restaurant_event][download][type] = git
+projects[restaurant_event][download][branch] = 7.x-1.x
+projects[restaurant_event][download][revision] = a94f178
+
+projects[restaurant_slideshow][version] = 1.x-dev
+projects[restaurant_slideshow][type] = module
+projects[restaurant_slideshow][subdir] = restaurant
+projects[restaurant_slideshow][download][type] = git
+projects[restaurant_slideshow][download][branch] = 7.x-1.x
+projects[restaurant_slideshow][download][revision] = 0177169
+
+projects[restaurant_pages][version] = 1.x-dev
+projects[restaurant_pages][type] = module
+projects[restaurant_pages][subdir] = restaurant
+projects[restaurant_pages][download][type] = git
+projects[restaurant_pages][download][branch] = 7.x-1.x
+projects[restaurant_pages][download][revision] = dd6c3f9
+
+projects[restaurant_demo][version] = 1.x-dev
+projects[restaurant_demo][type] = module
+projects[restaurant_demo][subdir] = restaurant
+projects[restaurant_demo][download][type] = git
+projects[restaurant_demo][download][branch] = 7.x-1.x
+projects[restaurant_demo][download][revision] = 397b080
+
+projects[restaurant_reservation][version] = 1.x-dev
+projects[restaurant_reservation][type] = module
+projects[restaurant_reservation][subdir] = restaurant
+projects[restaurant_reservation][download][type] = git
+projects[restaurant_reservation][download][branch] = 7.x-1.x
+projects[restaurant_reservation][download][revision] = 1693111
+
+projects[restaurant_seo][version] = 1.x-dev
+projects[restaurant_seo][type] = module
+projects[restaurant_seo][subdir] = restaurant
+projects[restaurant_seo][download][type] = git
+projects[restaurant_seo][download][branch] = 7.x-1.x
+projects[restaurant_seo][download][revision] = 7731562
+
+projects[restaurant_location][version] = 1.x-dev
+projects[restaurant_location][type] = module
+projects[restaurant_location][subdir] = restaurant
+projects[restaurant_location][download][type] = git
+projects[restaurant_location][download][branch] = 7.x-1.x
+projects[restaurant_location][download][revision] = e68a87e
+
+projects[restaurant_opentable][version] = 1.x-dev
+projects[restaurant_opentable][type] = module
+projects[restaurant_opentable][subdir] = restaurant
+projects[restaurant_opentable][download][type] = git
+projects[restaurant_opentable][download][branch] = 7.x-1.x
+projects[restaurant_opentable][download][revision] = 5bc01d1

@@ -305,18 +305,18 @@ function _install_from_db_replace_prefix($line, $conn) {
 /**
  * Copy files for demo modules.
  */
-// function _install_from_db_copy_files() {
-//   $demo_modules = _solkit_get_demo_modules();
-//   $mask = "(jpg|jpeg|gif|png|pdf)";
-// 
-//   // Get images from demo modules.
-//   foreach ($demo_modules as $demo_module) {
-//     $module_path = drupal_get_path('module', $demo_module);
-//     $image_path = $module_path . '/import/images';
-//     $images = file_scan_directory($image_path, $mask);
-//     // Copy images to public files directory.
-//     foreach ($images as $source => $image) {
-//       file_unmanaged_copy($source);
-//     }
-//   }
-// }
+function _install_from_db_copy_files() {
+  $demo_modules = _solkit_get_demo_modules();
+  $mask = "(jpg|jpeg|gif|png|pdf)";
+
+  // Get images from demo modules.
+  foreach ($demo_modules as $demo_module) {
+    $module_path = drupal_get_path('module', $demo_module);
+    $image_path = $module_path . '/import/images';
+    $images = file_scan_directory($image_path, $mask);
+    // Copy images to public files directory.
+    foreach ($images as $source => $image) {
+      file_unmanaged_copy($source);
+    }
+  }
+}

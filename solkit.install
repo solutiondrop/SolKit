@@ -199,7 +199,7 @@ function solkit_configure_solkit($form, &$form_state, &$install_state) {
   return $form;
 }
 
-function solkit_submit($form, &$form_state) {
+function solkit_configure_solkit_submit($form, &$form_state) {
   //
 }
 
@@ -255,9 +255,9 @@ function solkit_install_finished(&$install_state) {
   drupal_get_schema(NULL, TRUE);
 
   // Revert the demo module to fix https://www.drupal.org/node/2322661.
-  // if (!$install_state['interactive']) {
-  //   features_revert(array('solkit_demo' => array('variable')));
-  // }
+  if (!$install_state['interactive']) {
+    features_revert(array('restaurant_demo' => array('variable')));
+  }
 
   // Run cron to populate update status tables (if available) so that users
   // will be warned if they've installed an out of date Drupal version.
@@ -355,12 +355,12 @@ function _solkit_get_selected_installation_type() {
 /**
  * Returns a list of demo modules.
  */
-// function _solkit_get_demo_modules() {
-//   return array(
-//     'restaurant_blog_demo',
-//     'restaurant_event_demo',
-//     'restaurant_menu_demo',
-//     'restaurant_location_demo',
-//     'restaurant_reservation_demo',
-//   );
-// }
+function _solkit_get_demo_modules() {
+  return array(
+    'restaurant_blog_demo',
+    'restaurant_event_demo',
+    'restaurant_menu_demo',
+    'restaurant_location_demo',
+    'restaurant_reservation_demo',
+  );
+}

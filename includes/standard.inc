@@ -49,8 +49,13 @@ function solkit_select_features($form, &$form_state, &$install_state) {
   );
 
   $options_features = array(
-    'solkit_admin' => st('Enhanced administrative interface'),
-    'solkit_seo' => st('SEO - clean urls, metatags...etc'),
+    'restaurant_menu' => st('Menu management'),
+    'restaurant_blog' => st('Blog functionality'),
+    'restaurant_event' => st('Events and calendar'),
+    'restaurant_reservation' => st('Reservation system'),
+    'restaurant_location' => st('Multiple restaurant locations'),
+    'restaurant_admin' => st('Enhanced administrative interface'),
+    'restaurant_seo' => st('SEO such clean urls, metatags...etc'),
   );
   $form['features'] = array(
     '#type' => 'checkboxes',
@@ -60,12 +65,12 @@ function solkit_select_features($form, &$form_state, &$install_state) {
     '#default_value' => array_keys($options_features),
   );
 
-//  $form['demo_content'] = array(
-//    '#type' => 'checkbox',
-//    '#title' => st('Install demo content?'),
-//    '#description' => st('Install demo content such as menus, events and blog posts.'),
-//    '#default_value' => '1',
-//  );
+  $form['demo_content'] = array(
+    '#type' => 'checkbox',
+    '#title' => st('Install demo content?'),
+    '#description' => st('Install demo content such as menus, events and blog posts.'),
+    '#default_value' => '1',
+  );
 
   $form['actions'] = array(
     '#type' => 'actions',
@@ -85,7 +90,7 @@ function solkit_select_features($form, &$form_state, &$install_state) {
 
 function solkit_select_features_submit($form, &$form_state) {
   variable_set('solkit_features', $form_state['values']['features']);
-//  variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
+  variable_set('solkit_demo_content', $form_state['values']['demo_content']);
 }
 
 /**
@@ -100,27 +105,27 @@ function solkit_install_features() {
     $modules[] = $feature;
   }
 
-//    // Install demo content.
-//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
-//  if ($install_demo_content) {
-//    $modules[] = 'restaurant_pages';
-//    $modules[] = 'restaurant_demo';
-//    if (!empty($features['restaurant_blog'])) {
-//      $modules[] = 'restaurant_blog_demo';
-//    }
-//    if (!empty($features['restaurant_menu'])) {
-//      $modules[] = 'restaurant_menu_demo';
-//    }
-//    if (!empty($features['restaurant_event'])) {
-//      $modules[] = 'restaurant_event_demo';
-//    }
-//    if (!empty($features['restaurant_reservation'])) {
-//      $modules[] = 'restaurant_reservation_demo';
-//    }
-//    if (!empty($features['restaurant_location'])) {
-//      $modules[] = 'restaurant_location_demo';
-//    }
-//  }
+    // Install demo content.
+  $install_demo_content = variable_get('solkit_demo_content', FALSE);
+  if ($install_demo_content) {
+    $modules[] = 'restaurant_pages';
+    $modules[] = 'restaurant_demo';
+    if (!empty($features['restaurant_blog'])) {
+      $modules[] = 'restaurant_blog_demo';
+    }
+    if (!empty($features['restaurant_menu'])) {
+      $modules[] = 'restaurant_menu_demo';
+    }
+    if (!empty($features['restaurant_event'])) {
+      $modules[] = 'restaurant_event_demo';
+    }
+    if (!empty($features['restaurant_reservation'])) {
+      $modules[] = 'restaurant_reservation_demo';
+    }
+    if (!empty($features['restaurant_location'])) {
+      $modules[] = 'restaurant_location_demo';
+    }
+  }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
   // to do it later for each individual module (which kills performance).
@@ -154,30 +159,30 @@ function solkit_install_features() {
   return $batch;
 }
 
-///**
-// * Callback to install demo content
-// */
-//function restaurant_install_demo_content() {
-//  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
-//  $features = variable_get('restaurant_features', array());
-//  $operations = array();
-//
-//  if ($install_demo_content) {
-//    // Run all available migrations.
-//    $migrations = migrate_migrations();
-//    foreach ($migrations as $machine_name => $migration) {
-//      $operations[] = array('_restaurant_import', array($machine_name, t('Importing content.')));
-//    }
-//
-//    $batch = array(
-//      'title' => st('Installing demo content'),
-//      'operations' => $operations,
-//      'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
-//    );
-//
-//    return $batch;
-//  }
-//}
+/**
+ * Callback to install demo content
+ */
+function solkit_install_demo_content() {
+  $install_demo_content = variable_get('solkit_demo_content', FALSE);
+  $features = variable_get('solkit_features', array());
+  $operations = array();
+
+  if ($install_demo_content) {
+    // Run all available migrations.
+    $migrations = migrate_migrations();
+    foreach ($migrations as $machine_name => $migration) {
+      $operations[] = array('_solkit_import', array($machine_name, t('Importing content.')));
+    }
+
+    $batch = array(
+      'title' => st('Installing demo content'),
+      'operations' => $operations,
+      'file' => drupal_get_path('profile', 'solkit') . '/solkit.install_callbacks.inc',
+    );
+
+    return $batch;
+  }
+}
 
 /**
  * BatchAPI callback.
@@ -189,16 +194,16 @@ function _solkit_enable_module($module, $module_name, &$context) {
   $context['message'] = st('Installed %module module.', array('%module' => $module_name));
 }
 
-// /**
-//  * BatchAPI callback.
-//  *
-//  * @see restaurant_install_demo_content()
-//  */
-// function _restaurant_import($operation, $type, &$context) {
-//   $context['message'] = t('@operation', array('@operation' => $type));
-//   $migration =  Migration::getInstance($operation);
-//   $migration->resetStatus();
-//   $migration->processImport();
-// }
+/**
+ * BatchAPI callback.
+ *
+ * @see solkit_install_demo_content()
+ */
+function _solkit_import($operation, $type, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $type));
+  $migration =  Migration::getInstance($operation);
+  $migration->resetStatus();
+  $migration->processImport();
+}
 
 
