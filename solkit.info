@@ -66,7 +66,7 @@ dependencies[] = defaultconfig
 ; SolKit Features
 ; dependencies[] = solkit_admin
 ; dependencies[] = solkit_seo
-; dependencies[] = solkit_theme
+dependencies[] = solkit_theme
 ; dependencies[] = solkit_wysiwyg
 
 ; SolKit Contrib

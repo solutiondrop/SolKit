@@ -58,6 +58,22 @@ projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
 
 ; ************************************************
+; ************** SolKit Themes **************
+
+projects[solkit_octal][type] = theme
+projects[solkit_octal][download][type] = git
+projects[solkit_octal][download][branch] = master
+projects[solkit_octal][download][url] = https://github.com/solutiondrop/solkit_octal.git
+
+projects[solwrap][type] = theme
+projects[solwrap][download][type] = git
+projects[solwrap][download][branch] = master
+projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
+
+; *********** End SolKit Themes *************
+; ************************************************
+
+; ************************************************
 ; ************** SolKit MODULES **************
 
 projects[solkit_theme][type] = module
