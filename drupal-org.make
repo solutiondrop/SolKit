@@ -60,6 +60,12 @@ projects[radix_views][subdir] = contrib
 ; ************************************************
 ; ************** SolKit Themes **************
 
+projects[solkit_octal][type] = module
+projects[solkit_octal][subdir] = solkit
+projects[solkit_octal][download][type] = git
+projects[solkit_octal][download][branch] = master
+projects[solkit_octal][download][url] = https://github.com/solutiondrop/solkit_octal.git
+
 projects[solwrap][type] = theme
 projects[solwrap][download][type] = git
 projects[solwrap][download][branch] = master
