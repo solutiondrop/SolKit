@@ -74,11 +74,18 @@ dependencies[] = solkit_theme
 ; dependencies[] = admin_menu
 ; dependencies[] = admin_menu_toolbar
 dependencies[] = browsersync
+
 dependencies[] = clean_markup
+dependencies[] = clean_markup_block
+dependencies[] = clean_markup_panels
+
 dependencies[] = ckeditor
 dependencies[] = elements
+dependencies[] = entity_token
+dependencies[] = field_collection
 dependencies[] = features_override
 dependencies[] = fences
+dependencies[] = globalredirect
 dependencies[] = html5_tools
 dependencies[] = picture
 ; dependencies[] = profiler_builder
