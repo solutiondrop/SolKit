@@ -76,7 +76,7 @@ dependencies[] = solkit_theme
 dependencies[] = browsersync
 
 dependencies[] = clean_markup
-dependencies[] = clean_markup_block
+dependencies[] = clean_markup_blocks
 dependencies[] = clean_markup_panels
 
 dependencies[] = ckeditor
