@@ -108,7 +108,7 @@ projects[features_override][version] = 2.0-rc2
 projects[features_override][subdir] = contrib
 
 ; advagg
-projects[advagg][version] = 2.14
+projects[advagg][version] = 2.16
 projects[advagg][subdir] = contrib
 
 ; blockify
@@ -116,11 +116,11 @@ projects[blockify][version] = 1.2
 projects[blockify][subdir] = contrib
 
 ; browsersync
-projects[browsersync][version] = 1.0
+projects[browsersync][version] = 1.1
 projects[browsersync][subdir] = contrib
 
 ; cacheflush - useful for giving cache clearing capabilities for client
-projects[cacheflush][version] = 3.0-alpha1
+projects[cacheflush][version] = 3.0-beta2
 projects[cacheflush][subdir] = contrib
 
 ; clean_markup
@@ -148,7 +148,7 @@ projects[entity_view_mode][version] = 1.0-rc1
 projects[entity_view_mode][subdir] = contrib
 
 ; fences
-projects[fences][version] = 1.0
+projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
 
 ; field_collection
@@ -164,7 +164,7 @@ projects[google_analytics][version] = 2.1
 projects[google_analytics][subdir] = contrib
 
 ; hotjar - for my clients that want heatmaps of certain pages
-projects[hotjar][version] = 1.0
+projects[hotjar][version] = 1.1
 projects[hotjar][subdir] = contrib
 
 ; html5_tools
@@ -172,7 +172,7 @@ projects[html5_tools][version] = 1.2
 projects[html5_tools][subdir] = contrib
 
 ; mailchimp - almost all my clients use mailchimp
-projects[mailchimp][version] = 3.4
+projects[mailchimp][version] = 3.6
 projects[mailchimp][subdir] = contrib
 
 ; mailsystem
@@ -180,15 +180,11 @@ projects[mailsystem][version] = 2.34
 projects[mailsystem][subdir] = contrib
 
 ; mandrill - For contact forms I like to send the emails via mandrill which needs a client account
-projects[mandrill][version] = 2.1
+projects[mandrill][version] = 2.2
 projects[mandrill][subdir] = contrib
 
-; panels_everywhere
-; projects[panels_everywhere][version] = 1.0-rc1
-; projects[panels_everywhere][subdir] = contrib
-
 ; picture
-projects[picture][version] = 2.11
+projects[picture][version] = 2.12
 projects[picture][subdir] = contrib
 
 ; profiler_builder - will remove after the profile is complete
@@ -196,7 +192,7 @@ projects[profiler_builder][version] = 1.2
 projects[profiler_builder][subdir] = contrib
 
 ; responsive_favicons - I'm going to look into this - it may be overkill
-projects[responsive_favicons][version] = 1.0
+projects[responsive_favicons][version] = 1.2
 projects[responsive_favicons][subdir] = contrib
 
 ; semanticviews
@@ -208,11 +204,11 @@ projects[variable][version] = 2.5
 projects[variable][subdir] = contrib
 
 ; view_mode_templates
-projects[view_mode_templates][version] = 1.x-dev
+projects[view_mode_templates][version] = 1.0
 projects[view_mode_templates][subdir] = contrib
 
 ; webform
-projects[webform][version] = 4.10
+projects[webform][version] = 4.11
 projects[webform][subdir] = contrib
 
 ; Link Widget Sandbox module - for wrapping links around image of text field type output
