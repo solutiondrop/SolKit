@@ -3,36 +3,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.27
+projects[panopoly_core][version] = 1.29
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.27
+projects[panopoly_images][version] = 1.29
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.27
+projects[panopoly_theme][version] = 1.29
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.27
+projects[panopoly_magic][version] = 1.29
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.27
+projects[panopoly_widgets][version] = 1.29
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.27
+projects[panopoly_admin][version] = 1.29
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.27
+projects[panopoly_users][version] = 1.29
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.27
+projects[panopoly_pages][version] = 1.29
 projects[panopoly_pages][subdir] = panopoly
 
-; projects[panopoly_wysiwyg][version] = 1.27
+; projects[panopoly_wysiwyg][version] = 1.29
 ; projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.27
+; projects[panopoly_search][version] = 1.29
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -42,10 +42,10 @@ projects[devel][subdir] = contrib
 
 ; Panopoly Other
 
-projects[panopoly_config][version] = 1.x-dev
+projects[panopoly_config][version] = 1.0
 projects[panopoly_config][subdir] = panopoly
-projects[panopoly_config][download][type] = git
-projects[panopoly_config][download][branch] = 7.x-1.x
+; projects[panopoly_config][download][type] = git
+; projects[panopoly_config][download][branch] = 7.x-1.x
 
 projects[panopoly_seo][version] = 1.0-beta4
 projects[panopoly_seo][subdir] = panopoly
@@ -104,7 +104,7 @@ projects[solkit_seo][download][url] = https://github.com/solutiondrop/solkit_seo
 ; ***************** CONTRIB ********************
 
 ; Features Override
-projects[features_override][version] = 2.0-rc2
+projects[features_override][version] = 2.0-rc3
 projects[features_override][subdir] = contrib
 
 ; advagg
@@ -120,7 +120,7 @@ projects[browsersync][version] = 1.1
 projects[browsersync][subdir] = contrib
 
 ; cacheflush - useful for giving cache clearing capabilities for client
-projects[cacheflush][version] = 3.0-beta2
+projects[cacheflush][version] = 3.0-rc2
 projects[cacheflush][subdir] = contrib
 
 ; clean_markup
@@ -152,7 +152,7 @@ projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
 
 ; field_collection
-projects[field_collection][version] = 1.0-beta8
+projects[field_collection][version] = 1.0-beta10
 projects[field_collection][subdir] = contrib
 
 ; globalredirect
@@ -168,7 +168,7 @@ projects[hotjar][version] = 1.1
 projects[hotjar][subdir] = contrib
 
 ; html5_tools
-projects[html5_tools][version] = 1.2
+projects[html5_tools][version] = 1.3
 projects[html5_tools][subdir] = contrib
 
 ; mailchimp - almost all my clients use mailchimp
@@ -184,7 +184,7 @@ projects[mandrill][version] = 2.2
 projects[mandrill][subdir] = contrib
 
 ; picture
-projects[picture][version] = 2.12
+projects[picture][version] = 2.13
 projects[picture][subdir] = contrib
 
 ; profiler_builder - will remove after the profile is complete
@@ -208,7 +208,7 @@ projects[view_mode_templates][version] = 1.0
 projects[view_mode_templates][subdir] = contrib
 
 ; webform
-projects[webform][version] = 4.11
+projects[webform][version] = 4.12
 projects[webform][subdir] = contrib
 
 ; Link Widget Sandbox module - for wrapping links around image of text field type output
