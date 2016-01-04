@@ -52,7 +52,7 @@ projects[panopoly_seo][subdir] = panopoly
 
 ; Radix Theme
 projects[radix][type] = theme
-projects[radix][version] = 3.0-rc4
+projects[radix][version] = 3.1
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
@@ -108,7 +108,7 @@ projects[features_override][version] = 2.0-rc3
 projects[features_override][subdir] = contrib
 
 ; advagg
-projects[advagg][version] = 2.16
+projects[advagg][version] = 2.17
 projects[advagg][subdir] = contrib
 
 ; blockify
@@ -128,11 +128,11 @@ projects[clean_markup][version] = 2.9
 projects[clean_markup][subdir] = contrib
 
 ; ckeditor
-projects[ckeditor][version] = 1.16
+projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
 ; colorizer
-projects[colorizer][version] = 1.7
+projects[colorizer][version] = 1.8
 projects[colorizer][subdir] = contrib
 
 ; ds
