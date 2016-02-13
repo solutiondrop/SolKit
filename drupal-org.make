@@ -52,7 +52,7 @@ projects[panopoly_seo][subdir] = panopoly
 
 ; Radix Theme
 projects[radix][type] = theme
-projects[radix][version] = 3.1
+projects[radix][version] = 3.3
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
@@ -136,7 +136,7 @@ projects[colorizer][version] = 1.8
 projects[colorizer][subdir] = contrib
 
 ; ds
-projects[ds][version] = 2.11
+projects[ds][version] = 2.13
 projects[ds][subdir] = contrib
 
 ; elements
@@ -152,7 +152,7 @@ projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
 
 ; field_collection
-projects[field_collection][version] = 1.0-beta10
+projects[field_collection][version] = 1.0-beta11
 projects[field_collection][subdir] = contrib
 
 ; globalredirect
