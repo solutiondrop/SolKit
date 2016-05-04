@@ -3,36 +3,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.32
+projects[panopoly_core][version] = 1.34
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.32
+projects[panopoly_images][version] = 1.34
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.32
+projects[panopoly_theme][version] = 1.34
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.32
+projects[panopoly_magic][version] = 1.34
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.32
+projects[panopoly_widgets][version] = 1.34
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.32
+projects[panopoly_admin][version] = 1.34
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.32
+projects[panopoly_users][version] = 1.34
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.32
+projects[panopoly_pages][version] = 1.34
 projects[panopoly_pages][subdir] = panopoly
 
-; projects[panopoly_wysiwyg][version] = 1.32
+; projects[panopoly_wysiwyg][version] = 1.34
 ; projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.32
+; projects[panopoly_search][version] = 1.34
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -42,10 +42,10 @@ projects[devel][subdir] = contrib
 
 ; Panopoly Other
 
-projects[panopoly_config][version] = 1.0
-projects[panopoly_config][subdir] = panopoly
+; projects[panopoly_config][version] = 1.0
+; projects[panopoly_config][subdir] = panopoly
 
-projects[panopoly_seo][version] = 1.0-beta5
+projects[panopoly_seo][version] = 1.0-beta6
 projects[panopoly_seo][subdir] = panopoly
 
 ; Radix Theme
@@ -63,10 +63,10 @@ projects[solkit_octal][download][type] = git
 projects[solkit_octal][download][branch] = master
 projects[solkit_octal][download][url] = https://github.com/solutiondrop/solkit_octal.git
 
-projects[solwrap][type] = theme
-projects[solwrap][download][type] = git
-projects[solwrap][download][branch] = master
-projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
+; projects[solwrap][type] = theme
+; projects[solwrap][download][type] = git
+; projects[solwrap][download][branch] = master
+; projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 
 ; *********** End SolKit Themes *************
 ; ************************************************
@@ -106,7 +106,7 @@ projects[features_override][version] = 2.0-rc3
 projects[features_override][subdir] = contrib
 
 ; advagg
-projects[advagg][version] = 2.17
+projects[advagg][version] = 2.18
 projects[advagg][subdir] = contrib
 
 ; blockify
@@ -130,11 +130,11 @@ projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
 ; colorizer
-projects[colorizer][version] = 1.8
-projects[colorizer][subdir] = contrib
+; projects[colorizer][version] = 1.8
+; projects[colorizer][subdir] = contrib
 
 ; ds
-projects[ds][version] = 2.13
+projects[ds][version] = 2.14
 projects[ds][subdir] = contrib
 
 ; elements
@@ -142,8 +142,8 @@ projects[elements][version] = 1.4
 projects[elements][subdir] = contrib
 
 ; entity_view_mode
-projects[entity_view_mode][version] = 1.0-rc1
-projects[entity_view_mode][subdir] = contrib
+; projects[entity_view_mode][version] = 1.0-rc1
+; projects[entity_view_mode][subdir] = contrib
 
 ; fences
 projects[fences][version] = 1.2
@@ -158,7 +158,7 @@ projects[globalredirect][version] = 1.5
 projects[globalredirect][subdir] = contrib
 
 ; google_analytics
-projects[google_analytics][version] = 2.1
+projects[google_analytics][version] = 2.2
 projects[google_analytics][subdir] = contrib
 
 ; hotjar - for my clients that want heatmaps of certain pages
@@ -170,24 +170,24 @@ projects[html5_tools][version] = 1.3
 projects[html5_tools][subdir] = contrib
 
 ; mailchimp - almost all my clients use mailchimp
-projects[mailchimp][version] = 3.6
+projects[mailchimp][version] = 4.3
 projects[mailchimp][subdir] = contrib
 
 ; mailsystem
-projects[mailsystem][version] = 2.34
-projects[mailsystem][subdir] = contrib
+; projects[mailsystem][version] = 2.34
+; projects[mailsystem][subdir] = contrib
 
 ; mandrill - For contact forms I like to send the emails via mandrill which needs a client account
-projects[mandrill][version] = 2.2
-projects[mandrill][subdir] = contrib
+; projects[mandrill][version] = 2.2
+; projects[mandrill][subdir] = contrib
 
 ; picture
 projects[picture][version] = 2.13
 projects[picture][subdir] = contrib
 
 ; profiler_builder - will remove after the profile is complete
-projects[profiler_builder][version] = 1.2
-projects[profiler_builder][subdir] = contrib
+; projects[profiler_builder][version] = 1.2
+; projects[profiler_builder][subdir] = contrib
 
 ; responsive_favicons - I'm going to look into this - it may be overkill
 projects[responsive_favicons][version] = 1.2
@@ -210,18 +210,18 @@ projects[webform][version] = 4.12
 projects[webform][subdir] = contrib
 
 ; Link Widget Sandbox module - for wrapping links around image of text field type output
-projects[link_widget][type] = module
-projects[link_widget][download][type] = "git"
-projects[link_widget][download][branch] = "7.x-1.x"
-projects[link_widget][download][url] = "http://git.drupal.org/sandbox/droath/1992732.git"
-projects[link_widget][subdir] = contrib
+; projects[link_widget][type] = module
+; projects[link_widget][download][type] = "git"
+; projects[link_widget][download][branch] = "7.x-1.x"
+; projects[link_widget][download][url] = "http://git.drupal.org/sandbox/droath/1992732.git"
+; projects[link_widget][subdir] = contrib
 
 ; Field Widget Storage API Sandbox module - for Link Widget
-projects[field_widget_sql_storage][type] = module
-projects[field_widget_sql_storage][download][type] = "git"
-projects[field_widget_sql_storage][download][branch] = "7.x-1.x"
-projects[field_widget_sql_storage][download][url] = "http://git.drupal.org/sandbox/droath/1992692.git"
-projects[field_widget_sql_storage][subdir] = contrib
+; projects[field_widget_sql_storage][type] = module
+; projects[field_widget_sql_storage][download][type] = "git"
+; projects[field_widget_sql_storage][download][branch] = "7.x-1.x"
+; projects[field_widget_sql_storage][download][url] = "http://git.drupal.org/sandbox/droath/1992692.git"
+; projects[field_widget_sql_storage][subdir] = contrib
 
 ; **************** END CONTRIB *****************
 ; **********************************************

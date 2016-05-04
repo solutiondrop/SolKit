@@ -41,7 +41,7 @@ dependencies[] = panopoly_pages
 ; dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Contrib
-dependencies[] = panopoly_config
+; dependencies[] = panopoly_config
 dependencies[] = panopoly_seo
 
 ; Panopoly Recommended - Admin & UI
@@ -61,7 +61,7 @@ dependencies[] = views_ui
 ; dependencies[] = apps
 
 ; configuration
-dependencies[] = defaultconfig
+; dependencies[] = defaultconfig
 
 ; SolKit Features
 ; dependencies[] = solkit_admin
@@ -88,11 +88,9 @@ dependencies[] = fences
 dependencies[] = globalredirect
 dependencies[] = html5_tools
 dependencies[] = picture
-; dependencies[] = profiler_builder
-; dependencies[] = profiler_builder_extras
 dependencies[] = semanticviews
-dependencies[] = radix_layouts
-dependencies[] = radix_views
+; dependencies[] = radix_layouts
+; dependencies[] = radix_views
 
 ; ----------
 ; Variables
