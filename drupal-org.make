@@ -42,8 +42,8 @@ projects[devel][subdir] = contrib
 
 ; Panopoly Other
 
-; projects[panopoly_config][version] = 1.0
-; projects[panopoly_config][subdir] = panopoly
+projects[panopoly_config][version] = 1.0
+projects[panopoly_config][subdir] = panopoly
 
 projects[panopoly_seo][version] = 1.0-beta6
 projects[panopoly_seo][subdir] = panopoly
