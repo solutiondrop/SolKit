@@ -63,10 +63,10 @@ projects[solkit_octal][download][type] = git
 projects[solkit_octal][download][branch] = master
 projects[solkit_octal][download][url] = https://github.com/solutiondrop/solkit_octal.git
 
-; projects[solwrap][type] = theme
-; projects[solwrap][download][type] = git
-; projects[solwrap][download][branch] = master
-; projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
+projects[solwrap][type] = theme
+projects[solwrap][download][type] = git
+projects[solwrap][download][branch] = master
+projects[solwrap][download][url] = https://github.com/solutiondrop/solwrap.git
 
 ; *********** End SolKit Themes *************
 ; ************************************************
