@@ -3,36 +3,36 @@ core = 7.x
 
 ; The Panopoly Foundation
 
-projects[panopoly_core][version] = 1.34
+projects[panopoly_core][version] = 1.35
 projects[panopoly_core][subdir] = panopoly
 
-projects[panopoly_images][version] = 1.34
+projects[panopoly_images][version] = 1.35
 projects[panopoly_images][subdir] = panopoly
 
-projects[panopoly_theme][version] = 1.34
+projects[panopoly_theme][version] = 1.35
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.34
+projects[panopoly_magic][version] = 1.35
 projects[panopoly_magic][subdir] = panopoly
 
-projects[panopoly_widgets][version] = 1.34
+projects[panopoly_widgets][version] = 1.35
 projects[panopoly_widgets][subdir] = panopoly
 
-projects[panopoly_admin][version] = 1.34
+projects[panopoly_admin][version] = 1.35
 projects[panopoly_admin][subdir] = panopoly
 
-projects[panopoly_users][version] = 1.34
+projects[panopoly_users][version] = 1.35
 projects[panopoly_users][subdir] = panopoly
 
 ; The Panopoly Toolset
 
-projects[panopoly_pages][version] = 1.34
+projects[panopoly_pages][version] = 1.35
 projects[panopoly_pages][subdir] = panopoly
 
-; projects[panopoly_wysiwyg][version] = 1.34
+; projects[panopoly_wysiwyg][version] = 1.35
 ; projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.34
+; projects[panopoly_search][version] = 1.35
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
@@ -129,10 +129,6 @@ projects[clean_markup][subdir] = contrib
 projects[ckeditor][version] = 1.17
 projects[ckeditor][subdir] = contrib
 
-; colorizer
-; projects[colorizer][version] = 1.8
-; projects[colorizer][subdir] = contrib
-
 ; ds
 projects[ds][version] = 2.14
 projects[ds][subdir] = contrib
@@ -176,10 +172,6 @@ projects[mailchimp][subdir] = contrib
 ; mailsystem
 ; projects[mailsystem][version] = 2.34
 ; projects[mailsystem][subdir] = contrib
-
-; mandrill - For contact forms I like to send the emails via mandrill which needs a client account
-; projects[mandrill][version] = 2.2
-; projects[mandrill][subdir] = contrib
 
 ; picture
 projects[picture][version] = 2.13
